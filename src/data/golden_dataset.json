@@ -2,1201 +2,1201 @@
   {
     "id": "CS-001",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1001?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1001. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-1)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-123.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-1"
     ]
   },
   {
     "id": "CS-002",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1002?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1002. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-2)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-246.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-2"
     ]
   },
   {
     "id": "CS-003",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1003?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1003. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-3)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-369.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-3"
     ]
   },
   {
     "id": "CS-004",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1004?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1004. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-4)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-492.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-4"
     ]
   },
   {
     "id": "CS-005",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1005?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1005. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-5)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-615.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-5"
     ]
   },
   {
     "id": "CS-006",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1006?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1006. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-6)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-738.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-6"
     ]
   },
   {
     "id": "CS-007",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1007?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1007. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-7)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-861.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-7"
     ]
   },
   {
     "id": "CS-008",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1008?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1008. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-8)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-984.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-8"
     ]
   },
   {
     "id": "CS-009",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1009?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1009. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-9)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-1107.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-9"
     ]
   },
   {
     "id": "CS-010",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1010?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1010. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-10)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-1230.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-10"
     ]
   },
   {
     "id": "CS-011",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1011?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1011. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-11)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-1353.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-11"
     ]
   },
   {
     "id": "CS-012",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1012?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1012. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-12)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-1476.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-12"
     ]
   },
   {
     "id": "CS-013",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1013?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1013. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-13)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-1599.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-13"
     ]
   },
   {
     "id": "CS-014",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1014?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1014. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-14)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-1722.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-14"
     ]
   },
   {
     "id": "CS-015",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1015?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1015. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-15)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-1845.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-15"
     ]
   },
   {
     "id": "CS-016",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1016?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1016. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-16)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-1968.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-16"
     ]
   },
   {
     "id": "CS-017",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1017?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1017. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-17)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-2091.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-17"
     ]
   },
   {
     "id": "CS-018",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1018?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1018. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-18)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-2214.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-18"
     ]
   },
   {
     "id": "CS-019",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1019?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1019. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-19)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-2337.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-19"
     ]
   },
   {
     "id": "CS-020",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1020?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1020. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-20)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-2460.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-20"
     ]
   },
   {
     "id": "CS-021",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1021?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1021. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-21)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-2583.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-21"
     ]
   },
   {
     "id": "CS-022",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1022?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1022. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-22)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-2706.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-22"
     ]
   },
   {
     "id": "CS-023",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1023?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1023. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "How do I request a GDPR data erasure under article 17? (Ref: CS-case-23)",
+    "expected_answer": "To request data erasure under GDPR Article 17, submit a request via the Privacy Portal at privacy.company.com or email dpo@company.com. Data will be purged within 30 days.",
+    "reference_context": "Privacy & Compliance Policy: Under GDPR Article 17 (Right to Erasure), users can request complete account deletion. Requests must be submitted via privacy.company.com or by emailing dpo@company.com. The Data Protection Officer (DPO) will execute the deletion within 30 calendar days. Logged ticket reference #CS-2829.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-23"
     ]
   },
   {
     "id": "CS-024",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1024?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1024. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "My account is locked due to 'suspicious login attempts'. How do I unlock it? (Ref: CS-case-24)",
+    "expected_answer": "Accounts locked for security reasons can be unlocked by resetting the password via verification email, or by presenting a valid photo ID to the support desk.",
+    "reference_context": "Security Protocol: When 5 failed login attempts occur, accounts are locked automatically. To unlock, users must click 'Reset Password' on the lock screen to verify ownership via registered email. If email access is lost, a manual identity check via government-issued photo ID is required. Logged ticket reference #CS-2952.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-24"
     ]
   },
   {
     "id": "CS-025",
     "category": "Customer Support",
-    "question": "How do I reset my account password for user ID 1025?",
-    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1025. You will receive a secure password reset link via email, which is valid for 24 hours.",
-    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "question": "What is your refund policy for annual subscriptions cancelled after 45 days? (Ref: CS-case-25)",
+    "expected_answer": "Under section 4.2 of our Terms of Service, annual subscriptions cancelled after the 30-day trial period but before 90 days are eligible for a 50% pro-rated refund. Cancellations after 90 days are non-refundable.",
+    "reference_context": "Billing Policy Term 4.2: We offer a full 100% refund for annual subscriptions cancelled within 30 days of purchase. For cancellations between 31 and 90 days, a 50% pro-rated refund is issued to the original payment method. No refunds are granted after 90 days. Logged ticket reference #CS-3075.",
     "tags": [
-      "auth",
-      "account-management",
-      "security"
+      "support",
+      "billing",
+      "case-25"
     ]
   },
   {
     "id": "TC-001",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #1)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-1)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v1.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-1"
+      "security",
+      "task-1"
     ]
   },
   {
     "id": "TC-002",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #2)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-2)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v2.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-2"
+      "security",
+      "task-2"
     ]
   },
   {
     "id": "TC-003",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #3)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-3)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v3.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-3"
+      "security",
+      "task-3"
     ]
   },
   {
     "id": "TC-004",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #4)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-4)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v4.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-4"
+      "security",
+      "task-4"
     ]
   },
   {
     "id": "TC-005",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #5)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-5)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v5.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-5"
+      "security",
+      "task-5"
     ]
   },
   {
     "id": "TC-006",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #6)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-6)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v6.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-6"
+      "security",
+      "task-6"
     ]
   },
   {
     "id": "TC-007",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #7)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-7)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v7.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-7"
+      "security",
+      "task-7"
     ]
   },
   {
     "id": "TC-008",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #8)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-8)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v8.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-8"
+      "security",
+      "task-8"
     ]
   },
   {
     "id": "TC-009",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #9)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-9)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v9.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-9"
+      "security",
+      "task-9"
     ]
   },
   {
     "id": "TC-010",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #10)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-10)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v10.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-10"
+      "security",
+      "task-10"
     ]
   },
   {
     "id": "TC-011",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #11)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-11)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v11.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-11"
+      "security",
+      "task-11"
     ]
   },
   {
     "id": "TC-012",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #12)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-12)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v12.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-12"
+      "security",
+      "task-12"
     ]
   },
   {
     "id": "TC-013",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #13)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-13)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v13.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-13"
+      "security",
+      "task-13"
     ]
   },
   {
     "id": "TC-014",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #14)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-14)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v14.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-14"
+      "security",
+      "task-14"
     ]
   },
   {
     "id": "TC-015",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #15)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-15)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v15.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-15"
+      "security",
+      "task-15"
     ]
   },
   {
     "id": "TC-016",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #16)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-16)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v16.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-16"
+      "security",
+      "task-16"
     ]
   },
   {
     "id": "TC-017",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #17)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-17)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v17.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-17"
+      "security",
+      "task-17"
     ]
   },
   {
     "id": "TC-018",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #18)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-18)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v18.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-18"
+      "security",
+      "task-18"
     ]
   },
   {
     "id": "TC-019",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #19)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-19)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v19.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-19"
+      "security",
+      "task-19"
     ]
   },
   {
     "id": "TC-020",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #20)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-20)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v20.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-20"
+      "security",
+      "task-20"
     ]
   },
   {
     "id": "TC-021",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #21)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-21)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v21.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-21"
+      "security",
+      "task-21"
     ]
   },
   {
     "id": "TC-022",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #22)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-22)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v22.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-22"
+      "security",
+      "task-22"
     ]
   },
   {
     "id": "TC-023",
     "category": "Technical & Coding",
-    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #23)",
-    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
-    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "question": "What causes a React hook 'useEffect has a missing dependency' warning and how do I fix it? (Ref: Dev-task-23)",
+    "expected_answer": "It occurs when variables declared inside the component scope are used in useEffect but not listed in the dependency array. Fix it by listing them, using functional updates, or wrapping functions in useCallback.",
+    "reference_context": "React Hook Optimization: The ESLint react-hooks/exhaustive-deps rule flags variables used inside useEffect that are omitted from the dependency array. To resolve this, include the missing variables in the array, wrap functions in useCallback, or use useRef for static variables. Verified with Linter v23.0.",
     "tags": [
       "coding",
-      "promises",
-      "variation-23"
+      "security",
+      "task-23"
     ]
   },
   {
     "id": "TC-024",
     "category": "Technical & Coding",
-    "question": "How do I optimize Docker image size for node applications? (Case variation #24)",
-    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
-    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "question": "How do I configure CORS in Express to allow credentials from a specific origin? (Ref: Dev-task-24)",
+    "expected_answer": "Set 'origin' to the specific domain (not wildcard '*') and set 'credentials' to true in the CORS middleware options.",
+    "reference_context": "Express Middleware: When sharing resources across domains, configure cors() middleware. If credentials (cookies/auth headers) are allowed, origin cannot be wildcard '*'. It must be set explicitly, e.g. cors({ origin: 'https://app.com', credentials: true }). Verified with Linter v24.0.",
     "tags": [
       "coding",
-      "docker",
-      "variation-24"
+      "security",
+      "task-24"
     ]
   },
   {
     "id": "TC-025",
     "category": "Technical & Coding",
-    "question": "How do I implement pagination in a REST API? (Case variation #25)",
-    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
-    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "question": "How do I prevent SQL injection in a raw Node-Postgres query? (Ref: Dev-task-25)",
+    "expected_answer": "Avoid template literals. Use parameterized queries by replacing variables with numbered placeholders ($1, $2) and passing values in a separate array.",
+    "reference_context": "Database Security Standard: When executing database queries in Node-Postgres, developers must use parameterized queries to prevent SQL injection. Example: client.query('SELECT * FROM users WHERE id = $1', [userId]) instead of using template literals like client.query(`SELECT * FROM users WHERE id = ${userId}`). Verified with Linter v25.0.",
     "tags": [
       "coding",
-      "rest api",
-      "variation-25"
+      "security",
+      "task-25"
     ]
   },
   {
     "id": "FI-001",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $105 million, representing a year-over-year growth rate of 6%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $105 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $99.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-1)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-1"
     ]
   },
   {
     "id": "FI-002",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $110 million, representing a year-over-year growth rate of 7%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $110 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $102.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-2)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-2"
     ]
   },
   {
     "id": "FI-003",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $115 million, representing a year-over-year growth rate of 8%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $115 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $106.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-3)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-3"
     ]
   },
   {
     "id": "FI-004",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $120 million, representing a year-over-year growth rate of 9%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $120 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $110.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-4)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-4"
     ]
   },
   {
     "id": "FI-005",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $125 million, representing a year-over-year growth rate of 5%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $125 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $119.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-5)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-5"
     ]
   },
   {
     "id": "FI-006",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $130 million, representing a year-over-year growth rate of 6%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $130 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $122.6 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-6)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-6"
     ]
   },
   {
     "id": "FI-007",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $135 million, representing a year-over-year growth rate of 7%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $135 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $126.2 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-7)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-7"
     ]
   },
   {
     "id": "FI-008",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $140 million, representing a year-over-year growth rate of 8%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $140 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $129.6 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-8)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-8"
     ]
   },
   {
     "id": "FI-009",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $145 million, representing a year-over-year growth rate of 9%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $145 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $133.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-9)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-9"
     ]
   },
   {
     "id": "FI-010",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $150 million, representing a year-over-year growth rate of 5%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $150 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $142.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-10)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-10"
     ]
   },
   {
     "id": "FI-011",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $155 million, representing a year-over-year growth rate of 6%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $155 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $146.2 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-11)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-11"
     ]
   },
   {
     "id": "FI-012",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $160 million, representing a year-over-year growth rate of 7%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $160 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $149.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-12)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-12"
     ]
   },
   {
     "id": "FI-013",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $165 million, representing a year-over-year growth rate of 8%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $165 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $152.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-13)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-13"
     ]
   },
   {
     "id": "FI-014",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $170 million, representing a year-over-year growth rate of 9%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $170 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $156.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-14)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-14"
     ]
   },
   {
     "id": "FI-015",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $175 million, representing a year-over-year growth rate of 5%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $175 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $166.7 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-15)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-15"
     ]
   },
   {
     "id": "FI-016",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $180 million, representing a year-over-year growth rate of 6%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $180 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $169.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-16)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-16"
     ]
   },
   {
     "id": "FI-017",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $185 million, representing a year-over-year growth rate of 7%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $185 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $172.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-17)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-17"
     ]
   },
   {
     "id": "FI-018",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $190 million, representing a year-over-year growth rate of 8%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $190 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $175.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-18)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-18"
     ]
   },
   {
     "id": "FI-019",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $195 million, representing a year-over-year growth rate of 9%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $195 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $178.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-19)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-19"
     ]
   },
   {
     "id": "FI-020",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $200 million, representing a year-over-year growth rate of 5%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $200 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $190.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-20)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-20"
     ]
   },
   {
     "id": "FI-021",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $205 million, representing a year-over-year growth rate of 6%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $205 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $193.4 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-21)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-21"
     ]
   },
   {
     "id": "FI-022",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $210 million, representing a year-over-year growth rate of 7%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $210 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $196.3 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-22)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q3.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-22"
     ]
   },
   {
     "id": "FI-023",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $215 million, representing a year-over-year growth rate of 8%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $215 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $199.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the difference between EBITDA and Adjusted EBITDA? (Ref: Fin-report-23)",
+    "expected_answer": "EBITDA measures earnings before interest, taxes, depreciation, and amortization. Adjusted EBITDA further removes non-recurring or non-cash items like stock-based compensation, write-downs, or legal settlements.",
+    "reference_context": "GAAP Accounting Definitions: EBITDA evaluates operating profitability by removing financing and accounting variables. Adjusted EBITDA refines this further by normalizing earnings for one-time, non-operating, or non-cash charges, such as restructuring expenses, acquisition costs, or stock-based compensation. audited for FY2026-Q4.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-23"
     ]
   },
   {
     "id": "FI-024",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $220 million, representing a year-over-year growth rate of 9%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $220 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $201.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "How do incentive stock options (ISOs) differ from non-qualified stock options (NSOs) regarding taxation? (Ref: Fin-report-24)",
+    "expected_answer": "ISOs qualify for special tax treatment where no tax is owed upon exercise (except potential AMT), and gains are taxed as long-term capital gains if held long enough. NSOs trigger ordinary income tax upon exercise on the spread value.",
+    "reference_context": "Equity Compensation Policy: ISOs are tax-advantaged stock options. No ordinary income tax is triggered at exercise, though it may trigger Alternative Minimum Tax (AMT). NSOs trigger ordinary income tax on the spread (fair market value minus exercise price) immediately at the time of exercise. audited for FY2026-Q1.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-24"
     ]
   },
   {
     "id": "FI-025",
     "category": "Financial & Data Extraction",
-    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
-    "expected_answer": "The reported total revenue was $225 million, representing a year-over-year growth rate of 5%.",
-    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $225 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $214.3 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "question": "What is the formula and standard threshold for the Quick Ratio (Acid-Test)? (Ref: Fin-report-25)",
+    "expected_answer": "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) / Current Liabilities. A ratio above 1.0 is considered healthy.",
+    "reference_context": "Corporate Finance Framework: The Quick Ratio evaluates short-term liquidity. Formula: Quick Ratio = (Cash & Equivalents + Marketable Securities + Accounts Receivable) / Current Liabilities. Unlike the Current Ratio, it excludes inventory. A ratio of 1.0 or higher suggests sufficient liquid assets to cover current liabilities. audited for FY2026-Q2.",
     "tags": [
       "finance",
-      "revenue",
-      "growth"
+      "taxation",
+      "report-25"
     ]
   },
   {
     "id": "LG-001",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-101?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-101: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-1)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A1.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-1"
     ]
   },
   {
     "id": "LG-002",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-102?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-102: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-2)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A2.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-2"
     ]
   },
   {
     "id": "LG-003",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-103?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-103: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-3)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A3.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-3"
     ]
   },
   {
     "id": "LG-004",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-104?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-104: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-4)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A4.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-4"
     ]
   },
   {
     "id": "LG-005",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-105?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-105: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-5)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A5.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-5"
     ]
   },
   {
     "id": "LG-006",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-106?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-106: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-6)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A6.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-6"
     ]
   },
   {
     "id": "LG-007",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-107?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-107: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-7)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A7.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-7"
     ]
   },
   {
     "id": "LG-008",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-108?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-108: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-8)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A8.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-8"
     ]
   },
   {
     "id": "LG-009",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-109?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-109: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-9)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A9.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-9"
     ]
   },
   {
     "id": "LG-010",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-110?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-110: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-10)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A10.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-10"
     ]
   },
   {
     "id": "LG-011",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-111?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-111: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-11)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A11.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-11"
     ]
   },
   {
     "id": "LG-012",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-112?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-112: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-12)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A12.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-12"
     ]
   },
   {
     "id": "LG-013",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-113?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-113: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-13)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A13.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-13"
     ]
   },
   {
     "id": "LG-014",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-114?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-114: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-14)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A14.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-14"
     ]
   },
   {
     "id": "LG-015",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-115?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-115: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-15)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A15.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-15"
     ]
   },
   {
     "id": "LG-016",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-116?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-116: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-16)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A16.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-16"
     ]
   },
   {
     "id": "LG-017",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-117?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-117: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-17)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A17.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-17"
     ]
   },
   {
     "id": "LG-018",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-118?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-118: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-18)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A18.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-18"
     ]
   },
   {
     "id": "LG-019",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-119?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-119: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-19)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A19.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-19"
     ]
   },
   {
     "id": "LG-020",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-120?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-120: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-20)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A20.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-20"
     ]
   },
   {
     "id": "LG-021",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-121?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-121: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-21)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A21.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-21"
     ]
   },
   {
     "id": "LG-022",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-122?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-122: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-22)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A22.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-22"
     ]
   },
   {
     "id": "LG-023",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-123?",
-    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-123: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the IP ownership status of work created by an independent contractor? (Ref: Legal-contract-23)",
+    "expected_answer": "IP remains owned by the contractor unless the contract explicitly contains a written assignment clause transferring all IP rights to the client.",
+    "reference_context": "Intellectual Property Ownership Clause: Work created by independent contractors does not automatically qualify as 'work made for hire' under copyright law. All IP rights remain with the contractor unless the contract explicitly includes a written Intellectual Property Assignment clause transferring ownership to the client. Verified by legal department approval #LG-A23.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-23"
     ]
   },
   {
     "id": "LG-024",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-124?",
-    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-124: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "What is the standard limitation of liability cap specified in Section 8.4? (Ref: Legal-contract-24)",
+    "expected_answer": "The limitation of liability cap is restricted to the total amount paid by the client in the 12 months preceding the claim.",
+    "reference_context": "Contract Liability Clause 8.4: Except for indemnification breaches, neither party's cumulative liability for claims arising under this Agreement shall exceed the aggregate fees paid or payable by Client to Provider during the 12-month period immediately preceding the event giving rise to liability. Verified by legal department approval #LG-A24.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-24"
     ]
   },
   {
     "id": "LG-025",
     "category": "Legal & Document Analysis",
-    "question": "What is the termination notice period required by the service agreement for client reference LG-125?",
-    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
-    "reference_context": "Service Agreement Term LG-125: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "question": "Under what conditions is a party exempt from liability due to a Force Majeure event? (Ref: Legal-contract-25)",
+    "expected_answer": "A party is exempt from liability if performance is prevented by events beyond reasonable control (natural disasters, war, government acts), provided they notify the other party within 15 days.",
+    "reference_context": "Contract Terms Section 12.1: A party is excused from performance delays caused by Force Majeure (acts of God, war, riots, strikes, government bans). To invoke exemption, the affected party must provide written notice to the other party within 15 days of occurrence and make reasonable efforts to mitigate effects. Verified by legal department approval #LG-A25.",
     "tags": [
       "legal",
-      "compliance",
-      "contracts"
+      "liability",
+      "contract-25"
     ]
   }
 ]

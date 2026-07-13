@@ -356,6 +356,50 @@ developmentSteps.forEach(ds => {
      .moveDown(0.7);
 });
 
+// ==========================================
+// PAGE 7: TRANSPARENCY LOG: REAL VS. SIMULATED
+// ==========================================
+doc.addPage();
+
+doc.fillColor('#1E293B')
+   .font(headingFont)
+   .fontSize(14)
+   .text('7. Transparency Log: Real vs. Simulated Components')
+   .moveDown(0.8);
+
+doc.fillColor('#334155')
+   .font(bodyFont)
+   .fontSize(10)
+   .text('When presenting this system in technical interviews (such as with Microsoft), complete transparency regarding implementation parameters is essential. Below is the exact matrix of simulated versus real components:', { lineGap: 3.5 })
+   .moveDown(1.2);
+
+const transparencyMatrix = [
+  {
+    title: '1. Model Inference and API Responses',
+    desc: 'Local simulation models (such as gpt-4o, claude-3-5-sonnet) run locally without calling third-party servers. They simulate responses using statistical distributions. Conversely, the gemini-1.5-flash path executes actual HTTP POST queries to Google\'s API endpoint, producing live outputs.'
+  },
+  {
+    title: '2. Correctness and Faithfulness Grading',
+    desc: 'Simulated runs assign mock percentage points based on hyperparameter correlations (e.g. failing faithfulness when chunk size is too small). Real Gemini evaluations run a dual-chain call: first generating the answer, then calling Gemini a second time as a judge to evaluate faithfulness and output a parsed JSON block.'
+  },
+  {
+    title: '3. API Error Handling and Pipeline Aborts',
+    desc: 'The mock path bypasses network states for local testing. The live Gemini path is designed to fail loudly and visibly. It intercepts HTTP error payloads (such as invalid API authorization or quota exceptions), prints the failure in the terminal, aborts the pipeline execution, and returns exit code 1 to block merges.'
+  }
+];
+
+transparencyMatrix.forEach(tm => {
+  doc.fillColor('#1E293B')
+     .font(headingFont)
+     .fontSize(11)
+     .text(tm.title)
+     .fillColor('#475569')
+     .font(bodyFont)
+     .fontSize(9.5)
+     .text(tm.desc, { indent: 15, lineGap: 3 })
+     .moveDown(0.8);
+});
+
 // Add Page Numbers on All Pages
 const range = doc.bufferedPageRange();
 for (let i = 0; i < range.count; i++) {
@@ -370,5 +414,5 @@ for (let i = 0; i < range.count; i++) {
 doc.end();
 
 stream.on('finish', () => {
-  console.log('✅ Generated PROJECT_EXPLANATION.pdf successfully with 6 pages of zero-overlap layouts!');
+  console.log('✅ Generated PROJECT_EXPLANATION.pdf successfully with 7 pages of zero-overlap layouts!');
 });

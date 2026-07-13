@@ -60,9 +60,32 @@ npm run eval -- --model=gemini-1.5-flash --subset=10 --apiKey=YOUR_AI_STUDIO_KEY
 
 ---
 
+---
+
 ## 🔑 Running with Google Gemini API
 To run real audits:
 1. Go to the **CI Run Simulator** tab.
 2. Select **Gemini 1.5 Flash (REAL API - Free Tier)** as the model.
 3. Paste a free key from **[Google AI Studio](https://aistudio.google.com/)** (valid keys must start with `AIzaSy`).
 4. Select a subset (like 5 or 10 cases) and trigger the run.
+
+---
+
+## 🔍 Transparency Log: Real vs. Simulated Components
+
+When discussing this project in technical interviews (such as with Microsoft), it is important to be completely transparent about which parts of the evaluation workstation are simulated vs. real:
+
+### 1. The Evaluation Execution Paths
+* **Simulated Path (Local Models):** When selecting `gpt-4o`, `gpt-4o-mini`, `claude-3-5-sonnet`, or `gpt-3.5-turbo`, the workstation **simulates** responses and scores. It runs mathematical curves using input parameters (e.g., chunk size, top-K, prompt constraints) to generate realistic latencies, cost, and hallucination rates for testing the UI dashboard.
+* **Real API Path (`gemini-1.5-flash`):** When selecting the live Gemini option and entering an API key, the system executes **actual live network calls** to Google's Gemini servers to generate responses in real-time.
+
+### 2. The Grading and Metrics Scoring
+* **Simulated Heuristics:** The simulated path assigns calculated mock scores with small random standard deviations for charting purposes.
+* **Real NLI & LLM-as-a-Judge:** The live Gemini path uses a **two-step evaluation chain**:
+  1. **Inference Call:** Queries Gemini for the answer based on prompt templates and retrieved context.
+  2. **Evaluation Call (LLM-as-a-Judge):** Sends a second independent prompt to Gemini containing the question, retrieved context, and the model's answer, instructing it to rate the **Faithfulness** and **Relevancy** on a scale of `0.0` to `1.0` and output a strictly parsed JSON block.
+
+### 3. Error Handling and Abort Conditions
+* **Simulated Path:** Runs smoothly through all mock cases for user testing.
+* **Real API Path:** Configured to **fail loudly and visibly** on network disconnects, API key expiration, or bad response payloads. Instead of masking failures, the runner immediately halts, reports the full HTTP error log details on-screen or in the CLI stack trace, and aborts the commit.
+

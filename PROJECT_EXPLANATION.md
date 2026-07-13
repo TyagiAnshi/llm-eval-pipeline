@@ -94,3 +94,22 @@ Under the simulator tab, you can customize prompt templates (using `{{context}}`
 
 ### 3. Auditing Regressions & Differences
 Navigate to the "Dual-Run Comparator" tab and select two different commits. The dashboard will display a side-by-side comparison of the prompts and config settings alongside difference metrics, showing you exactly where the system degraded.
+
+---
+
+## 6. Transparency Log: Real vs. Simulated Components
+
+To ensure complete clarity and transparency during interviews:
+
+### 1. Model Responses
+* **Simulated Models:** The local simulation scripts use pre-defined heuristics and standard statistical distributions to generate realistic responses and telemetry (latencies, token counts, cost) for testing the visualization dashboard.
+* **Real Gemini Model:** Configured to make live HTTPS query requests to the Google Gemini 1.5 Flash API endpoint to fetch genuine responses generated in real-time.
+
+### 2. Metric Grading Heuristics
+* **Simulated Path:** Applies randomized variation calculations based on hyperparameters like chunk size and prompt constraints.
+* **Real API Path (LLM-as-a-Judge):** Invokes a **two-step evaluation chain**. After the model generates an answer, the runner sends a second, separate API query to Gemini requesting it to act as a judge, grading the answer's **Faithfulness** and **Relevancy** against the context and formatting the output as JSON for parsed scoring.
+
+### 3. Pipeline Failure Assertions
+* **Simulated Path:** Always runs through 100% of test cases.
+* **Real API Path:** Fast-fails loudly and terminates instantly on rate limits, network timeouts, or invalid authorization credentials, outputting standard status codes to warn the CI operator.
+

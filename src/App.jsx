@@ -204,38 +204,77 @@ export default function App() {
           });
 
           const data = await response.json();
-          modelOutput = data.candidates?.[0]?.content?.parts?.[0]?.text || "No output returned.";
-          latency = Date.now() - startTime;
-
-          // Simple dynamic evaluation logic for real API outputs:
-          // 1. Relevancy: match semantic content words
-          const outputWords = modelOutput.toLowerCase().split(/\s+/);
-          const expectedWords = item.expected_answer.toLowerCase().split(/\s+/);
-          const matchedWords = expectedWords.filter(w => w.length > 4 && outputWords.includes(w));
-          const relevancy = matchedWords.length / expectedWords.filter(w => w.length > 4).length || 0.85;
-
-          // 2. Faithfulness check: check if output is fully supported by reference context
-          // Heuristic: check if nouns in model output match context
-          const contextWords = item.reference_context.toLowerCase();
-          const uniqueOutputNouns = Array.from(new Set(outputWords.filter(w => w.length > 5)));
-          const supportedNouns = uniqueOutputNouns.filter(noun => contextWords.includes(noun));
           
-          faithfulness = uniqueOutputNouns.length > 0 ? (supportedNouns.length / uniqueOutputNouns.length) : 1.0;
-          if (faithfulness < 0.80) {
-            isHallucinating = true;
+          // FAIL LOUDLY AND VISIBLY ON LIVE API FAILURE
+          if (!response.ok || data.error) {
+            const errMsg = data.error?.message || `HTTP error ${response.status}`;
+            addLog(`🚨 LIVE API RUN FAILED LOUDLY AND VISIBLY:`, 'error');
+            addLog(`❌ Code ${response.status}: ${errMsg}`, 'error');
+            addLog(`Pipeline Aborted at Node ${item.id}.`, 'error');
+            setIsSimulating(false);
+            return;
           }
 
-          // Cost: Gemini 1.5 Flash Free Tier is $0
-          cost = 0;
-
-          addLog(`✅ API Response received for ${item.id} (${latency}ms)`, 'success');
+          modelOutput = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+          latency = Date.now() - startTime;
+          addLog(`✅ Model Output received for ${item.id} (${latency}ms)`, 'success');
         } catch (err) {
-          addLog(`❌ API Fetch failed for ${item.id}: ${err.message}`, 'error');
-          modelOutput = "Fetch error.";
-          latency = 1000;
-          faithfulness = 0.5;
-          isHallucinating = true;
+          addLog(`🚨 CONNECTION FAILURE EXPOSED LOUDLY:`, 'error');
+          addLog(`❌ details: ${err.message}`, 'error');
+          addLog(`Pipeline Aborted at Node ${item.id}.`, 'error');
+          setIsSimulating(false);
+          return;
         }
+
+        // LLM-as-a-Judge Evaluation (NLI grading)
+        try {
+          addLog(`⚖️ Running LLM-as-a-Judge NLI Auditor for ${item.id}...`, 'info');
+          const judgePrompt = `You are an expert AI evaluator. Assess the following:
+[Question]: ${item.question}
+[Context]: ${item.reference_context}
+[Generated Answer]: ${modelOutput}
+
+Grade the Generated Answer on two parameters:
+1. Faithfulness (Is the answer strictly derived from the context? 0.0 to 1.0)
+2. Relevancy (Does the answer address the question? 0.0 to 1.0)
+
+Output ONLY a JSON block in this exact format:
+{ "faithfulness": 0.95, "relevancy": 0.98, "isHallucinating": false }`;
+
+          const judgeResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: judgePrompt }] }]
+            })
+          });
+
+          const judgeData = await judgeResponse.json();
+          if (!judgeResponse.ok || judgeData.error) {
+            const errMsg = judgeData.error?.message || `HTTP error ${judgeResponse.status}`;
+            addLog(`🚨 LLM-AS-A-JUDGE CRITICAL AUDIT FAILURE:`, 'error');
+            addLog(`❌ ${errMsg}`, 'error');
+            setIsSimulating(false);
+            return;
+          }
+
+          const judgeText = judgeData.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+          const jsonMatch = judgeText.match(/\{[\s\S]*?\}/);
+          const parsedJudge = JSON.parse(jsonMatch ? jsonMatch[0] : judgeText);
+
+          faithfulness = parseFloat(parsedJudge.faithfulness) ?? 1.0;
+          const relevancy = parseFloat(parsedJudge.relevancy) ?? 1.0;
+          isHallucinating = parsedJudge.isHallucinating ?? (faithfulness < 0.80);
+          totalRelevancy += relevancy;
+
+          addLog(`📊 Audit Grade: Faithfulness=${(faithfulness*100).toFixed(0)}%, Relevancy=${(relevancy*100).toFixed(0)}%, Hallucination=${isHallucinating ? '⚠️ Yes' : 'Passed'}`, 'success');
+        } catch (err) {
+          addLog(`🚨 JUDGE PARSING ERROR EXPOSED: ${err.message}`, 'error');
+          setIsSimulating(false);
+          return;
+        }
+
+        cost = 0; // Gemini 1.5 Flash Free Tier
       } else {
         // Simulated local runner logic
         const lowerPrompt = simPrompt.toLowerCase();

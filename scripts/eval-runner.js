@@ -111,6 +111,8 @@ async function run() {
 
     if (useRealAPI) {
       const startTime = Date.now();
+      
+      // Step 1: Query the model under test
       try {
         const promptText = promptTemplate
           .replace('{{context}}', item.reference_context)
@@ -125,31 +127,76 @@ async function run() {
         });
 
         const data = await response.json();
-        modelOutput = data.candidates?.[0]?.content?.parts?.[0]?.text || "No output returned.";
-        latency = Date.now() - startTime;
-
-        // Custom heuristics scoring for real output
-        const outputWords = modelOutput.toLowerCase().split(/\s+/);
-        const expectedWords = item.expected_answer.toLowerCase().split(/\s+/);
-        const matchedWords = expectedWords.filter(w => w.length > 4 && outputWords.includes(w));
-        relevancy = matchedWords.length / expectedWords.filter(w => w.length > 4).length || 0.85;
-
-        const contextWords = item.reference_context.toLowerCase();
-        const uniqueOutputNouns = Array.from(new Set(outputWords.filter(w => w.length > 5)));
-        const supportedNouns = uniqueOutputNouns.filter(noun => contextWords.includes(noun));
         
-        faithfulness = uniqueOutputNouns.length > 0 ? (supportedNouns.length / uniqueOutputNouns.length) : 1.0;
-        if (faithfulness < 0.80) {
-          isHallucinating = true;
+        // FAIL LOUDLY AND VISIBLY ON API ERROR
+        if (!response.ok || data.error) {
+          const errMsg = data.error?.message || `HTTP error ${response.status}`;
+          const errCode = data.error?.code || response.status;
+          console.error(`\n🚨 LIVE API RUN FAILED LOUDLY AND VISIBLY:`);
+          console.error(`Status: ${errCode}`);
+          console.error(`Error Message: ${errMsg}`);
+          console.error(`Failed on node: ${item.id}\n`);
+          process.exit(1);
         }
+
+        modelOutput = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        latency = Date.now() - startTime;
       } catch (err) {
-        modelOutput = `Error: ${err.message}`;
-        latency = 1000;
-        faithfulness = 0.5;
-        isHallucinating = true;
+        console.error(`\n🚨 NETWORK OR CONNECTION FAILURE LOUDLY EXPOSED:`);
+        console.error(`Details: ${err.message}`);
+        console.error(`Failed on node: ${item.id}\n`);
+        process.exit(1);
+      }
+
+      // Step 2: LLM-as-a-Judge Evaluation (Real NLI scoring)
+      try {
+        const judgePrompt = `You are an expert AI evaluator. Assess the following:
+[Question]: ${item.question}
+[Context]: ${item.reference_context}
+[Generated Answer]: ${modelOutput}
+
+Grade the Generated Answer on two parameters:
+1. Faithfulness (Is the answer strictly derived from the context? 0.0 to 1.0)
+2. Relevancy (Does the answer address the question? 0.0 to 1.0)
+
+Output ONLY a JSON block in this exact format:
+{ "faithfulness": 0.95, "relevancy": 0.98, "isHallucinating": false }`;
+
+        const judgeResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: judgePrompt }] }]
+          })
+        });
+
+        const judgeData = await judgeResponse.json();
+        
+        // FAIL LOUDLY ON JUDGE ERROR
+        if (!judgeResponse.ok || judgeData.error) {
+          const errMsg = judgeData.error?.message || `HTTP error ${judgeResponse.status}`;
+          console.error(`\n🚨 LLM-AS-A-JUDGE EVALUATION FAILED LOUDLY:`);
+          console.error(`Error: ${errMsg}\n`);
+          process.exit(1);
+        }
+
+        const judgeText = judgeData.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+        
+        // Extract JSON block from markdown if returned
+        const jsonMatch = judgeText.match(/\{[\s\S]*?\}/);
+        const parsedJudge = JSON.parse(jsonMatch ? jsonMatch[0] : judgeText);
+
+        faithfulness = parseFloat(parsedJudge.faithfulness) ?? 1.0;
+        relevancy = parseFloat(parsedJudge.relevancy) ?? 1.0;
+        isHallucinating = parsedJudge.isHallucinating ?? (faithfulness < 0.80);
+      } catch (err) {
+        console.error(`\n🚨 LLM-AS-A-JUDGE PARSING ERROR LOUDLY EXPOSED:`);
+        console.error(`Details: ${err.message}`);
+        console.error(`Raw Judge Text: ${modelOutput}\n`);
+        process.exit(1);
       }
     } else {
-      // Simulation
+      // Simulation Path (mock heuristics)
       isHallucinating = Math.random() < baseHallucination;
       latency = Math.round(baseLatency + (Math.random() * 400 - 200));
       
