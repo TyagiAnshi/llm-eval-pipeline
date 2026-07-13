@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "CS-001",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1001?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1001. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-002",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1002?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1002. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-003",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1003?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1003. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-004",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1004?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1004. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-005",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1005?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1005. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-006",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1006?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1006. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-007",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1007?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1007. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-008",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1008?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1008. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-009",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1009?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1009. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-010",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1010?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1010. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-011",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1011?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1011. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-012",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1012?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1012. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-013",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1013?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1013. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-014",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1014?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1014. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-015",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1015?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1015. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-016",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1016?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1016. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-017",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1017?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1017. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-018",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1018?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1018. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-019",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1019?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1019. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-020",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1020?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1020. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-021",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1021?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1021. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-022",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1022?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1022. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-023",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1023?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1023. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-024",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1024?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1024. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "CS-025",
+    "category": "Customer Support",
+    "question": "How do I reset my account password for user ID 1025?",
+    "expected_answer": "To reset your password, click the \"Forgot Password\" link on the login page. Enter your email address or user ID 1025. You will receive a secure password reset link via email, which is valid for 24 hours.",
+    "reference_context": "Security protocol: Password reset requests can be initiated from the login page. Users must provide their registration email or user ID. A reset link is generated and sent via SMTP to the verified email. The link expires after 24 hours. Under no circumstances should support agents disclose passwords directly over chat or phone.",
+    "tags": [
+      "auth",
+      "account-management",
+      "security"
+    ]
+  },
+  {
+    "id": "TC-001",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #1)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-1"
+    ]
+  },
+  {
+    "id": "TC-002",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #2)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-2"
+    ]
+  },
+  {
+    "id": "TC-003",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #3)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-3"
+    ]
+  },
+  {
+    "id": "TC-004",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #4)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-4"
+    ]
+  },
+  {
+    "id": "TC-005",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #5)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-5"
+    ]
+  },
+  {
+    "id": "TC-006",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #6)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-6"
+    ]
+  },
+  {
+    "id": "TC-007",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #7)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-7"
+    ]
+  },
+  {
+    "id": "TC-008",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #8)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-8"
+    ]
+  },
+  {
+    "id": "TC-009",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #9)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-9"
+    ]
+  },
+  {
+    "id": "TC-010",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #10)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-10"
+    ]
+  },
+  {
+    "id": "TC-011",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #11)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-11"
+    ]
+  },
+  {
+    "id": "TC-012",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #12)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-12"
+    ]
+  },
+  {
+    "id": "TC-013",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #13)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-13"
+    ]
+  },
+  {
+    "id": "TC-014",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #14)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-14"
+    ]
+  },
+  {
+    "id": "TC-015",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #15)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-15"
+    ]
+  },
+  {
+    "id": "TC-016",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #16)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-16"
+    ]
+  },
+  {
+    "id": "TC-017",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #17)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-17"
+    ]
+  },
+  {
+    "id": "TC-018",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #18)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-18"
+    ]
+  },
+  {
+    "id": "TC-019",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #19)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-19"
+    ]
+  },
+  {
+    "id": "TC-020",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #20)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-20"
+    ]
+  },
+  {
+    "id": "TC-021",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #21)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-21"
+    ]
+  },
+  {
+    "id": "TC-022",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #22)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-22"
+    ]
+  },
+  {
+    "id": "TC-023",
+    "category": "Technical & Coding",
+    "question": "What is the difference between Promise.all and Promise.allSettled? (Case variation #23)",
+    "expected_answer": "Promise.all rejects immediately if any promise fails. Promise.allSettled waits for all promises to resolve or reject, returning an array of objects describing each result.",
+    "reference_context": "JavaScript async control flow: Promise.all resolves when all promises resolve, or rejects when the first rejects. Promise.allSettled is ES2020 and always resolves with statuses: \"fulfilled\" or \"rejected\".",
+    "tags": [
+      "coding",
+      "promises",
+      "variation-23"
+    ]
+  },
+  {
+    "id": "TC-024",
+    "category": "Technical & Coding",
+    "question": "How do I optimize Docker image size for node applications? (Case variation #24)",
+    "expected_answer": "Use multi-stage builds. Copy package.json, run npm install in a build stage, copy only production dependencies and build artifacts to a minimal runner base image like alpine.",
+    "reference_context": "Container optimization: Multi-stage builds separate development tools from production runtimes. Use .dockerignore to exclude node_modules. Use node:alpine or distroless images for runtime.",
+    "tags": [
+      "coding",
+      "docker",
+      "variation-24"
+    ]
+  },
+  {
+    "id": "TC-025",
+    "category": "Technical & Coding",
+    "question": "How do I implement pagination in a REST API? (Case variation #25)",
+    "expected_answer": "Implement pagination using \"limit\" and \"offset\" query parameters or cursor-based keys. Return a \"next\" URL or \"has_more\" boolean in the response metadata.",
+    "reference_context": "Best practices for API design recommend chunking large lists. Limit/offset pagination is simple but slow on large datasets. Cursor-based pagination uses a unique identifier to fetch the next page and scales efficiently.",
+    "tags": [
+      "coding",
+      "rest api",
+      "variation-25"
+    ]
+  },
+  {
+    "id": "FI-001",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $105 million, representing a year-over-year growth rate of 6%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $105 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $99.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-002",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $110 million, representing a year-over-year growth rate of 7%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $110 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $102.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-003",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $115 million, representing a year-over-year growth rate of 8%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $115 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $106.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-004",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $120 million, representing a year-over-year growth rate of 9%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $120 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $110.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-005",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $125 million, representing a year-over-year growth rate of 5%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $125 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $119.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-006",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $130 million, representing a year-over-year growth rate of 6%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $130 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $122.6 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-007",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $135 million, representing a year-over-year growth rate of 7%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $135 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $126.2 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-008",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $140 million, representing a year-over-year growth rate of 8%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $140 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $129.6 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-009",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $145 million, representing a year-over-year growth rate of 9%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $145 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $133.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-010",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $150 million, representing a year-over-year growth rate of 5%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $150 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $142.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-011",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $155 million, representing a year-over-year growth rate of 6%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $155 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $146.2 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-012",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $160 million, representing a year-over-year growth rate of 7%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $160 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $149.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-013",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $165 million, representing a year-over-year growth rate of 8%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $165 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $152.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-014",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $170 million, representing a year-over-year growth rate of 9%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $170 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $156.0 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-015",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $175 million, representing a year-over-year growth rate of 5%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $175 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $166.7 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-016",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $180 million, representing a year-over-year growth rate of 6%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $180 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $169.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-017",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $185 million, representing a year-over-year growth rate of 7%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $185 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $172.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-018",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $190 million, representing a year-over-year growth rate of 8%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $190 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $175.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-019",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $195 million, representing a year-over-year growth rate of 9%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $195 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $178.9 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-020",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $200 million, representing a year-over-year growth rate of 5%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $200 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $190.5 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-021",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $205 million, representing a year-over-year growth rate of 6%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $205 million for the quarter ended June 30, 2026. This represents a growth rate of 6% compared to the $193.4 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-022",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $210 million, representing a year-over-year growth rate of 7%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $210 million for the quarter ended June 30, 2026. This represents a growth rate of 7% compared to the $196.3 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-023",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $215 million, representing a year-over-year growth rate of 8%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $215 million for the quarter ended June 30, 2026. This represents a growth rate of 8% compared to the $199.1 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-024",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $220 million, representing a year-over-year growth rate of 9%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $220 million for the quarter ended June 30, 2026. This represents a growth rate of 9% compared to the $201.8 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "FI-025",
+    "category": "Financial & Data Extraction",
+    "question": "What was the reported total revenue and year-over-year growth rate for Q2 FY2026 based on the financial report?",
+    "expected_answer": "The reported total revenue was $225 million, representing a year-over-year growth rate of 5%.",
+    "reference_context": "Financial Disclosure Q2 FY2026: The company recorded gross revenues of $225 million for the quarter ended June 30, 2026. This represents a growth rate of 5% compared to the $214.3 million revenue reported in Q2 FY2025. Operating margin stood at 18.4%.",
+    "tags": [
+      "finance",
+      "revenue",
+      "growth"
+    ]
+  },
+  {
+    "id": "LG-001",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-101?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-101: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-002",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-102?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-102: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-003",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-103?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-103: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-004",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-104?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-104: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-005",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-105?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-105: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-006",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-106?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-106: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-007",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-107?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-107: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-008",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-108?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-108: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-009",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-109?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-109: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-010",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-110?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-110: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-011",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-111?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-111: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-012",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-112?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-112: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-013",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-113?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-113: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-014",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-114?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-114: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-015",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-115?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-115: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-016",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-116?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-116: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-017",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-117?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-117: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-018",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-118?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-118: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-019",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-119?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-119: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-020",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-120?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-120: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-021",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-121?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-121: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-022",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-122?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-122: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-023",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-123?",
+    "expected_answer": "The termination notice period required is 60 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-123: Either party may terminate this Agreement without cause by providing at least 60 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-024",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-124?",
+    "expected_answer": "The termination notice period required is 30 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-124: Either party may terminate this Agreement without cause by providing at least 30 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  },
+  {
+    "id": "LG-025",
+    "category": "Legal & Document Analysis",
+    "question": "What is the termination notice period required by the service agreement for client reference LG-125?",
+    "expected_answer": "The termination notice period required is 45 days written notice prior to the anniversary of the contract.",
+    "reference_context": "Service Agreement Term LG-125: Either party may terminate this Agreement without cause by providing at least 45 days prior written notice to the other party. In the event of material breach, termination may occur immediately upon written notification of default if uncured within 10 business days.",
+    "tags": [
+      "legal",
+      "compliance",
+      "contracts"
+    ]
+  }
+]
