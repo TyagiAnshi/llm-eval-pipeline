@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { parseJudgeOutput } from '../utils/judgeParser.js';
+import defaultHistory from '../data/runs_history.json';
 
 export function useEvalRuns(initialDataset) {
   const [runsHistory, setRunsHistory] = useState([]);
@@ -28,9 +29,20 @@ export function useEvalRuns(initialDataset) {
         setActiveRunIdx(data.length - 1);
         setCompareRun1Idx(Math.max(0, data.length - 2));
         setCompareRun2Idx(data.length - 1);
+      } else {
+        throw new Error("No runs found in database.");
       }
     } catch (err) {
-      console.error("Failed to load runs history from SQLite backend:", err);
+      console.warn("Failed to load runs history from SQLite backend. Falling back to local static JSON history:", err);
+      // Map default history to match state shape
+      const mapped = defaultHistory.map(run => ({
+        ...run,
+        isSimulated: run.isSimulated !== false
+      }));
+      setRunsHistory(mapped);
+      setActiveRunIdx(mapped.length - 1);
+      setCompareRun1Idx(Math.max(0, mapped.length - 2));
+      setCompareRun2Idx(mapped.length - 1);
     } finally {
       setIsLoading(false);
     }
