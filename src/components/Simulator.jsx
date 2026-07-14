@@ -83,17 +83,25 @@ export default function Simulator({
               <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--accent-cyan)' }}>
                 <Key size={14} /> Google AI Studio API Key
               </label>
-              <input
-                type="password"
-                className="form-input"
-                style={{ background: 'rgba(0,0,0,0.6)', borderColor: 'var(--accent-indigo)' }}
-                placeholder="AIzaSy..."
-                value={geminiApiKey}
-                onChange={(e) => setGeminiApiKey(e.target.value)}
-              />
-              <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem', display: 'block' }}>
-                Stored strictly locally. Real API calls proxy securely via backend Node middleware.
-              </span>
+              {hasServerKey ? (
+                <div style={{ color: 'var(--color-success)', fontSize: '0.85rem', padding: '0.5rem 0', fontWeight: 600 }}>
+                  🟢 Server API Key is active (configured in environment).
+                </div>
+              ) : (
+                <>
+                  <input
+                    type="password"
+                    className="form-input"
+                    style={{ background: 'rgba(0,0,0,0.6)', borderColor: 'var(--accent-indigo)' }}
+                    placeholder="AIzaSy..."
+                    value={geminiApiKey}
+                    onChange={(e) => setGeminiApiKey(e.target.value)}
+                  />
+                  <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem', display: 'block' }}>
+                    Bring Your Own Key Tradeoff: Key is sent securely over the network to your local server at /api/eval and is never stored or exposed directly in client-side queries.
+                  </span>
+                </>
+              )}
             </div>
           )}
 
