@@ -134,6 +134,7 @@ export default function App() {
                 isSimulating={isSimulating}
                 simProgress={simProgress}
                 consoleLogs={consoleLogs}
+                hasServerKey={hasServerKey}
                 runEvaluation={runEvaluation}
               />
             )}

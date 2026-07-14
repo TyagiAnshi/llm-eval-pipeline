@@ -31,12 +31,13 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
 
   const activeRun = runsHistory[activeRunIdx];
 
-  // Helper to format chart data
+  // Helper to format chart data, separating simulated vs real runs statistically
   const chartData = runsHistory.map(run => ({
     commit: run.commitId,
-    faithfulness: Math.round(run.metrics.faithfulness * 100),
-    hallucinationRate: Math.round(run.metrics.hallucinationRate * 100),
-    latency: run.metrics.p95Latency
+    faithfulnessReal: !run.isSimulated ? Math.round(run.metrics.faithfulness * 100) : null,
+    faithfulnessSimulated: run.isSimulated ? Math.round(run.metrics.faithfulness * 100) : null,
+    hallucinationReal: !run.isSimulated ? Math.round(run.metrics.hallucinationRate * 100) : null,
+    hallucinationSimulated: run.isSimulated ? Math.round(run.metrics.hallucinationRate * 100) : null,
   }));
 
   // Filter test results of the active run
@@ -51,11 +52,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
   const getSlaStatusClass = (passed) => passed ? 'status-badge-premium passed' : 'status-badge-premium failed';
   
   // Format model label (simulated vs real)
-  const formatModelLabel = (modelName) => {
-    if (modelName === 'gemini-1.5-flash') {
-      return 'Google Gemini 1.5 Flash (REAL API)';
+  const formatModelLabel = (runObj) => {
+    if (!runObj.isSimulated) {
+      return `${runObj.model} (REAL API)`;
     }
-    return `${modelName} [SIMULATED]`;
+    return `${runObj.model} [SIMULATED]`;
   };
 
   return (
@@ -66,7 +67,7 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.35rem' }}>
             <span className="tag-pill" style={{ fontFamily: 'var(--font-mono)' }}>commit {activeRun.commitId}</span>
             <span style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)' }}>
-              Model: <strong style={{ color: '#FFF' }}>{formatModelLabel(activeRun.model)}</strong>
+              Model: <strong style={{ color: '#FFF' }}>{formatModelLabel(activeRun)}</strong>
             </span>
           </div>
           <h4>{activeRun.message}</h4>
@@ -79,9 +80,14 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
             {activeRun.passed ? <CheckCircle size={14} /> : <XCircle size={14} />}
             {activeRun.passed ? 'Safe to Merge (SLA Passed)' : 'Merge Blocked (SLA Failed)'}
           </div>
-          {activeRun.model !== 'gemini-1.5-flash' && (
-            <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', background: 'var(--color-warning-bg)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+          {activeRun.isSimulated && (
+            <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', background: 'var(--color-warning-bg)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
               ⚠️ Simulated telemetry data
+            </span>
+          )}
+          {!activeRun.isSimulated && (
+            <span style={{ fontSize: '0.75rem', color: 'var(--color-success)', background: 'var(--color-success-bg)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+              🟢 Real Gemini 1.5 & Judge Telemetry
             </span>
           )}
         </div>
@@ -166,8 +172,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
                 contentStyle={{ background: '#0A0F1D', border: '1px solid rgba(99, 102, 241, 0.2)', borderRadius: '8px' }}
                 labelFormatter={(value) => `Commit: ${value}`}
               />
-              <Line name="Faithfulness (%)" type="monotone" dataKey="faithfulness" stroke="var(--color-success)" strokeWidth={2} dot={{ r: 4 }} activeDot={{ r: 6 }} />
-              <Line name="Hallucinations (%)" type="monotone" dataKey="hallucinationRate" stroke="var(--color-error)" strokeWidth={2} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+              {/* Statistically isolated paths: solid for real, dashed for simulated */}
+              <Line name="Faithfulness (Real API)" type="monotone" dataKey="faithfulnessReal" stroke="var(--color-success)" strokeWidth={2} dot={{ r: 4 }} connectNulls={true} />
+              <Line name="Faithfulness (Simulated)" type="monotone" dataKey="faithfulnessSimulated" stroke="var(--color-text-secondary)" strokeDasharray="4 4" strokeWidth={1.5} dot={{ r: 3 }} connectNulls={true} />
+              <Line name="Hallucinations (Real API)" type="monotone" dataKey="hallucinationReal" stroke="var(--color-error)" strokeWidth={2} dot={{ r: 4 }} connectNulls={true} />
+              <Line name="Hallucinations (Simulated)" type="monotone" dataKey="hallucinationSimulated" stroke="#EF4444" strokeDasharray="4 4" strokeWidth={1.5} dot={{ r: 3 }} connectNulls={true} />
             </LineChart>
           </ResponsiveContainer>
         </div>

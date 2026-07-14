@@ -11,9 +11,16 @@ export function useEvalRuns(initialDataset) {
   const [consoleLogs, setConsoleLogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Load history from SQLite proxy API
+  const [hasServerKey, setHasServerKey] = useState(false);
+
+  // Load history and config from SQLite proxy API
   const fetchHistory = async () => {
     try {
+      // Load server config
+      const configRes = await fetch('/api/config');
+      const configData = await configRes.json();
+      setHasServerKey(!!configData.hasServerKey);
+
       const response = await fetch('/api/runs');
       const data = await response.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -49,7 +56,7 @@ export function useEvalRuns(initialDataset) {
     currentLogs = addLog(currentLogs, `📦 Commit: "${config.message}" by ${config.author}`, 'info');
 
     const useRealAPI = config.model === 'gemini-1.5-flash';
-    if (useRealAPI && !config.geminiApiKey) {
+    if (useRealAPI && !config.geminiApiKey && !hasServerKey) {
       addLog(currentLogs, '❌ ERROR: Gemini API Key is required for live evaluations.', 'error');
       setIsSimulating(false);
       return;
@@ -275,6 +282,7 @@ Output strictly JSON containing: faithfulness, relevancy, and isHallucinating.`;
       message: config.message,
       model: config.model,
       promptTemplate: config.promptTemplate,
+      isSimulated: !useRealAPI,
       ragConfig: { chunkSize: config.chunkSize, chunkOverlap: 50, topK: config.topK },
       metrics: {
         hallucinationRate: finalHallucinationRate,
@@ -331,6 +339,7 @@ Output strictly JSON containing: faithfulness, relevancy, and isHallucinating.`;
     simProgress,
     consoleLogs,
     isLoading,
+    hasServerKey,
     runEvaluation
   };
 }

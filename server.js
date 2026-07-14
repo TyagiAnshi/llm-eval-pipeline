@@ -8,6 +8,38 @@ const port = process.env.PORT || 5189;
 
 app.use(express.json());
 
+// In-memory rate limiting middleware
+const rateLimits = {};
+function rateLimiter(req, res, next) {
+  const ip = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const now = Date.now();
+  
+  if (!rateLimits[ip]) {
+    rateLimits[ip] = [];
+  }
+  
+  // Keep only requests in the last 60 seconds
+  rateLimits[ip] = rateLimits[ip].filter(timestamp => now - timestamp < 60000);
+  
+  if (rateLimits[ip].length >= 100) {
+    return res.status(429).json({
+      error: { message: "Too many requests. Rate limit is 100 requests per minute." }
+    });
+  }
+  
+  rateLimits[ip].push(now);
+  next();
+}
+
+app.use(rateLimiter);
+
+// Expose server configuration details
+app.get('/api/config', (req, res) => {
+  res.json({
+    hasServerKey: !!process.env.GEMINI_API_KEY
+  });
+});
+
 // Expose run history from SQLite
 app.get('/api/runs', async (req, res) => {
   try {
@@ -18,10 +50,25 @@ app.get('/api/runs', async (req, res) => {
   }
 });
 
-// Expose runs insertion
+// Expose runs insertion with validation checks
 app.post('/api/runs/add', async (req, res) => {
+  const run = req.body;
+
+  // Basic request body validation
+  if (!run.commitId || typeof run.commitId !== 'string') {
+    return res.status(400).json({ error: "Missing or invalid commitId" });
+  }
+  if (!run.model || typeof run.model !== 'string') {
+    return res.status(400).json({ error: "Missing or invalid model" });
+  }
+  if (!run.metrics || typeof run.metrics !== 'object') {
+    return res.status(400).json({ error: "Missing or invalid metrics" });
+  }
+  if (!Array.isArray(run.testResults)) {
+    return res.status(400).json({ error: "Missing or invalid testResults array" });
+  }
+
   try {
-    const run = req.body;
     const insertId = await insertRun(run);
     res.json({ success: true, id: insertId });
   } catch (err) {
@@ -29,14 +76,21 @@ app.post('/api/runs/add', async (req, res) => {
   }
 });
 
-// Proxy route for Gemini API queries (includes structured schemas)
+// Proxy route for Gemini API queries with prompt validation
 app.post('/api/eval', async (req, res) => {
   const { prompt, useStructuredSchema, clientApiKey } = req.body;
+
+  if (!prompt || typeof prompt !== 'string' || prompt.trim() === '') {
+    return res.status(400).json({
+      error: { message: "Required parameter 'prompt' is missing or empty." }
+    });
+  }
+
   const apiKey = process.env.GEMINI_API_KEY || clientApiKey || '';
 
   if (!apiKey) {
     return res.status(401).json({
-      error: { message: "API key missing. Provide GEMINI_API_KEY in environment or input it in client." }
+      error: { message: "API key missing. Provide GEMINI_API_KEY on the server or enter a key in the Simulator UI." }
     });
   }
 

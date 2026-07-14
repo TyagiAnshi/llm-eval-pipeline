@@ -282,6 +282,7 @@ Output strictly JSON containing: faithfulness, relevancy, and isHallucinating.`;
     message,
     model,
     promptTemplate,
+    isSimulated: !useRealAPI,
     ragConfig: { chunkSize, chunkOverlap, topK },
     metrics: {
       hallucinationRate: finalHallucinationRate,

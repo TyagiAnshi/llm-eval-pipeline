@@ -8,7 +8,10 @@ const db = new sqlite3.Database(dbPath);
 export function initDb() {
   return new Promise((resolve, reject) => {
     db.serialize(() => {
-      // 1. Create runs table
+      // Enable Write-Ahead Logging (WAL) mode for better concurrent performance
+      db.run("PRAGMA journal_mode = WAL");
+
+      // 1. Create runs table with isSimulated flag
       db.run(`
         CREATE TABLE IF NOT EXISTS runs (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,7 +32,8 @@ export function initDb() {
           p95Latency INTEGER,
           totalCost REAL,
           passed INTEGER,
-          failureReason TEXT
+          failureReason TEXT,
+          isSimulated INTEGER DEFAULT 1
         )
       `);
 
@@ -50,6 +54,11 @@ export function initDb() {
           status TEXT,
           FOREIGN KEY(runId) REFERENCES runs(id) ON DELETE CASCADE
         )
+      `);
+
+      // 3. Create index on test_results.runId for faster querying
+      db.run(`
+        CREATE INDEX IF NOT EXISTS idx_test_results_runId ON test_results(runId)
       `, (err) => {
         if (err) return reject(err);
         
@@ -69,72 +78,120 @@ export function initDb() {
   });
 }
 
-async function seedDefaultHistory() {
-  const historyJsonPath = path.resolve('src/data/runs_history.json');
-  if (!fs.existsSync(historyJsonPath)) return;
-  
-  const history = JSON.parse(fs.readFileSync(historyJsonPath, 'utf8'));
-  console.log(`Seeding SQLite database with ${history.length} historical runs...`);
+function seedDefaultHistory() {
+  return new Promise((resolve, reject) => {
+    const historyJsonPath = path.resolve('src/data/runs_history.json');
+    if (!fs.existsSync(historyJsonPath)) return resolve();
+    
+    const history = JSON.parse(fs.readFileSync(historyJsonPath, 'utf8'));
+    console.log(`Seeding SQLite database with ${history.length} default runs...`);
 
-  for (const run of history) {
-    await new Promise((resolve, reject) => {
-      db.run(`
-        INSERT INTO runs (
-          commitId, author, timestamp, message, model, promptTemplate,
-          chunkSize, chunkOverlap, topK, hallucinationRate, answerRelevancy,
-          faithfulness, avgLatency, p50Latency, p95Latency, totalCost, passed, failureReason
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `, [
-        run.commitId, run.author, run.timestamp, run.message, run.model, run.promptTemplate,
-        run.ragConfig.chunkSize, run.ragConfig.chunkOverlap, run.ragConfig.topK,
-        run.metrics.hallucinationRate, run.metrics.answerRelevancy, run.metrics.faithfulness,
-        run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
-        run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason
-      ], function(err) {
+    db.serialize(() => {
+      db.run("BEGIN TRANSACTION", (err) => {
         if (err) return reject(err);
-        const runDbId = this.lastID;
 
-        // Insert individual test cases
-        const stmt = db.prepare(`
-          INSERT INTO test_results (
-            runId, testId, category, question, modelOutput,
-            latency, cost, relevancy, faithfulness, isHallucinating, status
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        `);
+        let completed = 0;
+        const total = history.length;
 
-        for (const res of run.testResults) {
-          stmt.run([
-            runDbId, res.id, res.category, res.question, res.modelOutput,
-            res.latency, res.cost, res.relevancy, res.faithfulness,
-            res.isHallucinating ? 1 : 0, res.status
-          ]);
+        if (total === 0) {
+          db.run("COMMIT", (err) => err ? reject(err) : resolve());
+          return;
         }
-        stmt.finalize(resolve);
+
+        const checkCompletion = () => {
+          completed++;
+          if (completed === total) {
+            db.run("COMMIT", (err) => {
+              if (err) {
+                db.run("ROLLBACK");
+                return reject(err);
+              }
+              resolve();
+            });
+          }
+        };
+
+        for (const run of history) {
+          db.run(`
+            INSERT INTO runs (
+              commitId, author, timestamp, message, model, promptTemplate,
+              chunkSize, chunkOverlap, topK, hallucinationRate, answerRelevancy,
+              faithfulness, avgLatency, p50Latency, p95Latency, totalCost, passed, failureReason, isSimulated
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+          `, [
+            run.commitId, run.author, run.timestamp, run.message, run.model, run.promptTemplate,
+            run.ragConfig.chunkSize, run.ragConfig.chunkOverlap, run.ragConfig.topK,
+            run.metrics.hallucinationRate, run.metrics.answerRelevancy, run.metrics.faithfulness,
+            run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
+            run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason
+          ], function(err) {
+            if (err) {
+              db.run("ROLLBACK");
+              return reject(err);
+            }
+            const runDbId = this.lastID;
+
+            const stmt = db.prepare(`
+              INSERT INTO test_results (
+                runId, testId, category, question, modelOutput,
+                latency, cost, relevancy, faithfulness, isHallucinating, status
+              ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `);
+
+            for (const res of run.testResults) {
+              stmt.run([
+                runDbId, res.id, res.category, res.question, res.modelOutput,
+                res.latency, res.cost, res.relevancy, res.faithfulness,
+                res.isHallucinating ? 1 : 0, res.status
+              ], (stmtErr) => {
+                if (stmtErr) {
+                  stmt.finalize();
+                  db.run("ROLLBACK");
+                  return reject(stmtErr);
+                }
+              });
+            }
+            stmt.finalize((finalizeErr) => {
+              if (finalizeErr) {
+                db.run("ROLLBACK");
+                return reject(finalizeErr);
+              }
+              checkCompletion();
+            });
+          });
+        }
       });
     });
-  }
+  });
+}
+
+function getTestResults(runId) {
+  return new Promise((resolve, reject) => {
+    db.all("SELECT * FROM test_results WHERE runId = ?", [runId], (err, rows) => {
+      if (err) reject(err);
+      else resolve(rows);
+    });
+  });
 }
 
 export function getAllRuns() {
   return new Promise((resolve, reject) => {
-    db.all("SELECT * FROM runs ORDER BY timestamp ASC", (err, runs) => {
+    db.all("SELECT * FROM runs ORDER BY timestamp ASC", async (err, runs) => {
       if (err) return reject(err);
-      
-      // Load test results for each run
-      const runsWithResults = [];
       if (runs.length === 0) return resolve([]);
       
-      let pending = runs.length;
-      for (const run of runs) {
-        db.all("SELECT * FROM test_results WHERE runId = ?", [run.id], (err, results) => {
-          if (err) return reject(err);
-          runsWithResults.push({
+      try {
+        // Fix ordering fragility using Promise.all map
+        const runsWithResults = await Promise.all(runs.map(async (run) => {
+          const results = await getTestResults(run.id);
+          return {
             commitId: run.commitId,
             author: run.author,
             timestamp: run.timestamp,
             message: run.message,
             model: run.model,
             promptTemplate: run.promptTemplate,
+            isSimulated: run.isSimulated === 1,
             ragConfig: {
               chunkSize: run.chunkSize,
               chunkOverlap: run.chunkOverlap,
@@ -163,15 +220,11 @@ export function getAllRuns() {
               isHallucinating: r.isHallucinating === 1,
               status: r.status
             }))
-          });
-          
-          pending--;
-          if (pending === 0) {
-            // Sort to preserve chronological order
-            runsWithResults.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-            resolve(runsWithResults);
-          }
-        });
+          };
+        }));
+        resolve(runsWithResults);
+      } catch (mapErr) {
+        reject(mapErr);
       }
     });
   });
@@ -185,14 +238,14 @@ export function insertRun(run) {
         INSERT INTO runs (
           commitId, author, timestamp, message, model, promptTemplate,
           chunkSize, chunkOverlap, topK, hallucinationRate, answerRelevancy,
-          faithfulness, avgLatency, p50Latency, p95Latency, totalCost, passed, failureReason
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          faithfulness, avgLatency, p50Latency, p95Latency, totalCost, passed, failureReason, isSimulated
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `, [
         run.commitId, run.author, run.timestamp, run.message, run.model, run.promptTemplate,
         run.ragConfig.chunkSize, run.ragConfig.chunkOverlap, run.ragConfig.topK,
         run.metrics.hallucinationRate, run.metrics.answerRelevancy, run.metrics.faithfulness,
         run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
-        run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason
+        run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason, run.isSimulated ? 1 : 0
       ], function(err) {
         if (err) {
           db.run("ROLLBACK");
@@ -212,16 +265,22 @@ export function insertRun(run) {
             runDbId, res.id, res.category, res.question, res.modelOutput,
             res.latency, res.cost, res.relevancy, res.faithfulness,
             res.isHallucinating ? 1 : 0, res.status
-          ]);
+          ], (stmtErr) => {
+            if (stmtErr) {
+              stmt.finalize();
+              db.run("ROLLBACK");
+              return reject(stmtErr);
+            }
+          });
         }
 
-        stmt.finalize((err) => {
-          if (err) {
+        stmt.finalize((finalizeErr) => {
+          if (finalizeErr) {
             db.run("ROLLBACK");
-            return reject(err);
+            return reject(finalizeErr);
           }
-          db.run("COMMIT", (err) => {
-            if (err) return reject(err);
+          db.run("COMMIT", (commitErr) => {
+            if (commitErr) return reject(commitErr);
             resolve(runDbId);
           });
         });

@@ -41,6 +41,13 @@ export default function Comparator({
 
   const getMetricClass = (passed) => passed ? 'status-badge-premium passed' : 'status-badge-premium failed';
 
+  const formatModelLabel = (runObj) => {
+    if (!runObj.isSimulated) {
+      return `${runObj.model} (REAL API)`;
+    }
+    return `${runObj.model} [SIMULATED]`;
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       {/* Selector ribbon */}
@@ -77,11 +84,16 @@ export default function Comparator({
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
             <div>
               <span className="tag-pill" style={{ fontFamily: 'var(--font-mono)' }}>commit {runA.commitId}</span>
-              <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', block: 'inline', marginLeft: '0.5rem' }}>{runA.model}</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', display: 'inline', marginLeft: '0.5rem' }}>{formatModelLabel(runA)}</span>
               <h4 style={{ fontSize: '1rem', fontWeight: 600, marginTop: '0.5rem' }}>{runA.message}</h4>
             </div>
-            <div className={getMetricClass(runA.passed)}>
-              {runA.passed ? 'PASSED' : 'FAILED'}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.25rem' }}>
+              <div className={getMetricClass(runA.passed)}>
+                {runA.passed ? 'PASSED' : 'FAILED'}
+              </div>
+              <span style={{ fontSize: '0.7rem', color: runA.isSimulated ? 'var(--color-warning)' : 'var(--color-success)', fontWeight: 600 }}>
+                {runA.isSimulated ? '⚠️ SIMULATED' : '🟢 REAL API'}
+              </span>
             </div>
           </div>
 
@@ -119,11 +131,16 @@ export default function Comparator({
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
             <div>
               <span className="tag-pill" style={{ fontFamily: 'var(--font-mono)' }}>commit {runB.commitId}</span>
-              <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', block: 'inline', marginLeft: '0.5rem' }}>{runB.model}</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', display: 'inline', marginLeft: '0.5rem' }}>{formatModelLabel(runB)}</span>
               <h4 style={{ fontSize: '1rem', fontWeight: 600, marginTop: '0.5rem' }}>{runB.message}</h4>
             </div>
-            <div className={getMetricClass(runB.passed)}>
-              {runB.passed ? 'PASSED' : 'FAILED'}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.25rem' }}>
+              <div className={getMetricClass(runB.passed)}>
+                {runB.passed ? 'PASSED' : 'FAILED'}
+              </div>
+              <span style={{ fontSize: '0.7rem', color: runB.isSimulated ? 'var(--color-warning)' : 'var(--color-success)', fontWeight: 600 }}>
+                {runB.isSimulated ? '⚠️ SIMULATED' : '🟢 REAL API'}
+              </span>
             </div>
           </div>
 
