@@ -47,4 +47,17 @@ describe('parseJudgeOutput Unit Tests', () => {
     expect(result.relevancy).toBe(0.0);
     expect(result.isHallucinating).toBe(true);
   });
+
+  it('clamps out-of-range scores into [0,1]', () => {
+    const raw = '{ "faithfulness": 1.4, "relevancy": -0.2, "isHallucinating": false }';
+    const result = parseJudgeOutput(raw);
+    expect(result.faithfulness).toBe(1.0);
+    expect(result.relevancy).toBe(0.0);
+  });
+
+  it('treats string "true" as hallucinating', () => {
+    const raw = '{ "faithfulness": 0.5, "relevancy": 0.5, "isHallucinating": "true" }';
+    const result = parseJudgeOutput(raw);
+    expect(result.isHallucinating).toBe(true);
+  });
 });
