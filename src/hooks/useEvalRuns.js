@@ -148,7 +148,7 @@ Output strictly JSON containing: faithfulness, relevancy, and isHallucinating.`;
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               prompt: judgePrompt,
-              clientApiKey: config.geminiApiKey,
+              clientApiKey: hasServerKey ? '' : config.geminiApiKey,
               useStructuredSchema: true
             })
           });

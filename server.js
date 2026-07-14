@@ -33,6 +33,20 @@ function rateLimiter(req, res, next) {
 
 app.use(rateLimiter);
 
+// Simple API Key secret authorization middleware for public endpoints
+function authCheck(req, res, next) {
+  const apiSecret = process.env.API_SECRET;
+  if (apiSecret) {
+    const authHeader = req.headers['authorization'];
+    if (authHeader !== `Bearer ${apiSecret}`) {
+      return res.status(403).json({
+        error: { message: "Access forbidden. Missing or invalid Bearer API Secret token." }
+      });
+    }
+  }
+  next();
+}
+
 // Expose server configuration details
 app.get('/api/config', (req, res) => {
   res.json({
@@ -51,7 +65,7 @@ app.get('/api/runs', async (req, res) => {
 });
 
 // Expose runs insertion with validation checks
-app.post('/api/runs/add', async (req, res) => {
+app.post('/api/runs/add', authCheck, async (req, res) => {
   const run = req.body;
 
   // Basic request body validation
@@ -77,7 +91,7 @@ app.post('/api/runs/add', async (req, res) => {
 });
 
 // Proxy route for Gemini API queries with prompt validation
-app.post('/api/eval', async (req, res) => {
+app.post('/api/eval', authCheck, async (req, res) => {
   const { prompt, useStructuredSchema, clientApiKey } = req.body;
 
   if (!prompt || typeof prompt !== 'string' || prompt.trim() === '') {

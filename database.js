@@ -35,7 +35,17 @@ export function initDb() {
           failureReason TEXT,
           isSimulated INTEGER DEFAULT 1
         )
-      `);
+      `, () => {
+        // Run migration check: add isSimulated if table existed before schema change
+        db.all("PRAGMA table_info(runs)", (err, columns) => {
+          if (!err && columns && columns.length > 0) {
+            const hasIsSimulated = columns.some(col => col.name === 'isSimulated');
+            if (!hasIsSimulated) {
+              db.run("ALTER TABLE runs ADD COLUMN isSimulated INTEGER DEFAULT 1");
+            }
+          }
+        });
+      });
 
       // 2. Create test_results table
       db.run(`
@@ -91,6 +101,7 @@ function seedDefaultHistory() {
         if (err) return reject(err);
 
         let completed = 0;
+        let hasFailed = false;
         const total = history.length;
 
         if (total === 0) {
@@ -99,10 +110,12 @@ function seedDefaultHistory() {
         }
 
         const checkCompletion = () => {
+          if (hasFailed) return;
           completed++;
           if (completed === total) {
             db.run("COMMIT", (err) => {
               if (err) {
+                hasFailed = true;
                 db.run("ROLLBACK");
                 return reject(err);
               }
@@ -112,6 +125,8 @@ function seedDefaultHistory() {
         };
 
         for (const run of history) {
+          if (hasFailed) break;
+
           db.run(`
             INSERT INTO runs (
               commitId, author, timestamp, message, model, promptTemplate,
@@ -125,7 +140,9 @@ function seedDefaultHistory() {
             run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
             run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason
           ], function(err) {
+            if (hasFailed) return;
             if (err) {
+              hasFailed = true;
               db.run("ROLLBACK");
               return reject(err);
             }
@@ -139,20 +156,31 @@ function seedDefaultHistory() {
             `);
 
             for (const res of run.testResults) {
+              if (hasFailed) break;
               stmt.run([
                 runDbId, res.id, res.category, res.question, res.modelOutput,
                 res.latency, res.cost, res.relevancy, res.faithfulness,
                 res.isHallucinating ? 1 : 0, res.status
               ], (stmtErr) => {
+                if (hasFailed) return;
                 if (stmtErr) {
+                  hasFailed = true;
                   stmt.finalize();
                   db.run("ROLLBACK");
                   return reject(stmtErr);
                 }
               });
             }
+
+            if (hasFailed) {
+              stmt.finalize();
+              return;
+            }
+
             stmt.finalize((finalizeErr) => {
+              if (hasFailed) return;
               if (finalizeErr) {
+                hasFailed = true;
                 db.run("ROLLBACK");
                 return reject(finalizeErr);
               }
@@ -181,7 +209,6 @@ export function getAllRuns() {
       if (runs.length === 0) return resolve([]);
       
       try {
-        // Fix ordering fragility using Promise.all map
         const runsWithResults = await Promise.all(runs.map(async (run) => {
           const results = await getTestResults(run.id);
           return {
@@ -232,7 +259,10 @@ export function getAllRuns() {
 
 export function insertRun(run) {
   return new Promise((resolve, reject) => {
+    let hasFailed = false;
+
     db.serialize(() => {
+      if (hasFailed) return;
       db.run("BEGIN TRANSACTION");
       db.run(`
         INSERT INTO runs (
@@ -247,7 +277,9 @@ export function insertRun(run) {
         run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
         run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason, run.isSimulated ? 1 : 0
       ], function(err) {
+        if (hasFailed) return;
         if (err) {
+          hasFailed = true;
           db.run("ROLLBACK");
           return reject(err);
         }
@@ -261,12 +293,15 @@ export function insertRun(run) {
         `);
 
         for (const res of run.testResults) {
+          if (hasFailed) break;
           stmt.run([
             runDbId, res.id, res.category, res.question, res.modelOutput,
             res.latency, res.cost, res.relevancy, res.faithfulness,
             res.isHallucinating ? 1 : 0, res.status
           ], (stmtErr) => {
+            if (hasFailed) return;
             if (stmtErr) {
+              hasFailed = true;
               stmt.finalize();
               db.run("ROLLBACK");
               return reject(stmtErr);
@@ -274,12 +309,20 @@ export function insertRun(run) {
           });
         }
 
+        if (hasFailed) {
+          stmt.finalize();
+          return;
+        }
+
         stmt.finalize((finalizeErr) => {
+          if (hasFailed) return;
           if (finalizeErr) {
+            hasFailed = true;
             db.run("ROLLBACK");
             return reject(finalizeErr);
           }
           db.run("COMMIT", (commitErr) => {
+            if (hasFailed) return;
             if (commitErr) return reject(commitErr);
             resolve(runDbId);
           });

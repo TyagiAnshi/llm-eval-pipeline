@@ -36,7 +36,7 @@ export default function Simulator({
   const handleRun = () => {
     runEvaluation({
       model: simModel,
-      geminiApiKey,
+      geminiApiKey: hasServerKey ? '' : geminiApiKey,
       promptTemplate: simPrompt,
       chunkSize: simChunkSize,
       topK: simTopK,
