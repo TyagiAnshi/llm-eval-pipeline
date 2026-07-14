@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { parseJudgeOutput } from '../utils/judgeParser';
+import { parseJudgeOutput } from '../utils/judgeParser.js';
 
 export function useEvalRuns(initialDataset) {
   const [runsHistory, setRunsHistory] = useState([]);
