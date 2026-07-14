@@ -8,19 +8,24 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "eval": "node scripts/eval-runner.js"
+    "eval": "node scripts/eval-runner.js",
+    "test": "vitest run",
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "lucide-react": "^0.344.0",
     "pdfkit": "^0.19.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recharts": "^2.12.2"
+    "recharts": "^2.12.2",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vitest": "^4.1.10"
   }
 }

@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { initDb, insertRun } from '../database.js';
+import { parseJudgeOutput } from '../src/utils/judgeParser.js';
 
 // Helper to parse arguments
 function getArgs() {
@@ -39,7 +41,6 @@ console.log('--------------------------------------------------');
 
 // Load golden dataset
 const datasetPath = path.resolve('src/data/golden_dataset.json');
-const historyPath = path.resolve('src/data/runs_history.json');
 
 if (!fs.existsSync(datasetPath)) {
   console.error(`❌ Golden dataset not found at ${datasetPath}`);
@@ -47,7 +48,6 @@ if (!fs.existsSync(datasetPath)) {
 }
 
 const goldenDataset = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
-const runsHistory = fs.existsSync(historyPath) ? JSON.parse(fs.readFileSync(historyPath, 'utf8')) : [];
 
 console.log(`📋 Loaded ${goldenDataset.length} test cases.`);
 const subsetItems = goldenDataset.slice(0, evalSubset);
@@ -84,6 +84,9 @@ if (!hasSafetyConstraint) baseFaithfulness -= 0.06;
 if (chunkSize < 250) baseFaithfulness -= 0.05;
 
 async function run() {
+  // Initialize DB first
+  await initDb();
+
   const testResults = [];
   let totalLatency = 0;
   let totalCost = 0;
@@ -96,7 +99,7 @@ async function run() {
   const apiKey = args.apiKey || process.env.GEMINI_API_KEY || '';
 
   if (useRealAPI && !apiKey) {
-    console.error('❌ ERROR: Gemini API key required for real evaluation runs. Use --apiKey=<key>');
+    console.error('❌ ERROR: Gemini API key required for real evaluation runs. Use --apiKey=<key> or set GEMINI_API_KEY env.');
     process.exit(1);
   }
 
@@ -131,24 +134,20 @@ async function run() {
         // FAIL LOUDLY AND VISIBLY ON API ERROR
         if (!response.ok || data.error) {
           const errMsg = data.error?.message || `HTTP error ${response.status}`;
-          const errCode = data.error?.code || response.status;
           console.error(`\n🚨 LIVE API RUN FAILED LOUDLY AND VISIBLY:`);
-          console.error(`Status: ${errCode}`);
           console.error(`Error Message: ${errMsg}`);
-          console.error(`Failed on node: ${item.id}\n`);
           process.exit(1);
         }
 
         modelOutput = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
         latency = Date.now() - startTime;
       } catch (err) {
-        console.error(`\n🚨 NETWORK OR CONNECTION FAILURE LOUDLY EXPOSED:`);
+        console.error(`\n🚨 CONNECTION FAILURE EXPOSED LOUDLY:`);
         console.error(`Details: ${err.message}`);
-        console.error(`Failed on node: ${item.id}\n`);
         process.exit(1);
       }
 
-      // Step 2: LLM-as-a-Judge Evaluation (Real NLI scoring)
+      // Step 2: LLM-as-a-Judge Evaluation (Structured responseSchema to avoid NaN bugs)
       try {
         const judgePrompt = `You are an expert AI evaluator. Assess the following:
 [Question]: ${item.question}
@@ -159,14 +158,25 @@ Grade the Generated Answer on two parameters:
 1. Faithfulness (Is the answer strictly derived from the context? 0.0 to 1.0)
 2. Relevancy (Does the answer address the question? 0.0 to 1.0)
 
-Output ONLY a JSON block in this exact format:
-{ "faithfulness": 0.95, "relevancy": 0.98, "isHallucinating": false }`;
+Output strictly JSON containing: faithfulness, relevancy, and isHallucinating.`;
 
         const judgeResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: judgePrompt }] }]
+            contents: [{ parts: [{ text: judgePrompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: "OBJECT",
+                properties: {
+                  faithfulness: { type: "NUMBER" },
+                  relevancy: { type: "NUMBER" },
+                  isHallucinating: { type: "BOOLEAN" }
+                },
+                required: ["faithfulness", "relevancy", "isHallucinating"]
+              }
+            }
           })
         });
 
@@ -180,19 +190,15 @@ Output ONLY a JSON block in this exact format:
           process.exit(1);
         }
 
-        const judgeText = judgeData.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
-        
-        // Extract JSON block from markdown if returned
-        const jsonMatch = judgeText.match(/\{[\s\S]*?\}/);
-        const parsedJudge = JSON.parse(jsonMatch ? jsonMatch[0] : judgeText);
+        const judgeText = judgeData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        const parsedJudge = parseJudgeOutput(judgeText);
 
-        faithfulness = parseFloat(parsedJudge.faithfulness) ?? 1.0;
-        relevancy = parseFloat(parsedJudge.relevancy) ?? 1.0;
-        isHallucinating = parsedJudge.isHallucinating ?? (faithfulness < 0.80);
+        faithfulness = parsedJudge.faithfulness;
+        relevancy = parsedJudge.relevancy;
+        isHallucinating = parsedJudge.isHallucinating;
       } catch (err) {
-        console.error(`\n🚨 LLM-AS-A-JUDGE PARSING ERROR LOUDLY EXPOSED:`);
-        console.error(`Details: ${err.message}`);
-        console.error(`Raw Judge Text: ${modelOutput}\n`);
+        console.error(`\n🚨 LLM-AS-A-JUDGE SCORING FAILURE:`);
+        console.error(`Details: ${err.message}\n`);
         process.exit(1);
       }
     } else {
@@ -240,7 +246,7 @@ Output ONLY a JSON block in this exact format:
       status: (isHallucinating || latency > 2000) ? 'failed' : 'passed'
     });
 
-    // Rate limiting delay for live API (1.2 seconds)
+    // Rate limiting delay for live API
     if (useRealAPI && index < subsetItems.length - 1) {
       await new Promise(r => setTimeout(r, 1200));
     }
@@ -291,8 +297,8 @@ Output ONLY a JSON block in this exact format:
     testResults
   };
 
-  runsHistory.push(newRun);
-  fs.writeFileSync(historyPath, JSON.stringify(runsHistory, null, 2));
+  // Insert the run details to SQLite database
+  await insertRun(newRun);
 
   console.log('--------------------------------------------------');
   console.log('📊 EVALUATION COMPLETE');
@@ -306,7 +312,7 @@ Output ONLY a JSON block in this exact format:
   console.log('--------------------------------------------------');
 
   if (passed) {
-    console.log('🎉 SUCCESS: All quality gates passed! Ready to merge.');
+    console.log('🎉 SUCCESS: All quality gates passed! Saved to runs.db. Ready to merge.');
     process.exit(0);
   } else {
     console.error(`🚨 FAIL: Quality gate check failed.`);
