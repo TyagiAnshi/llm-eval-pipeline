@@ -6,6 +6,7 @@ export default function Simulator({
   isSimulating,
   simProgress,
   consoleLogs,
+  hasServerKey,
   runEvaluation
 }) {
   const [simModel, setSimModel] = useState('gpt-4o-mini');
