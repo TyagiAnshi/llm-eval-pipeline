@@ -19,19 +19,20 @@ export default function Comparator({
   const runA = runsHistory[compareRun1Idx];
   const runB = runsHistory[compareRun2Idx];
 
-  const calcDiff = (valA, valB, isTime = false, isPercent = false) => {
+  const calcDiff = (valA, valB, formatType = '', isHigherBetter = false) => {
     const diff = valB - valA;
     if (diff === 0) return { text: 'No change', color: 'var(--color-text-secondary)' };
     
-    let isBetter = diff < 0; // standard latency/hallucinations decrease is good
-    if (isPercent && !isBetter) {
-      // faithfulness/relevancy increase is good
-      isBetter = diff > 0;
-    }
+    const isBetter = isHigherBetter ? diff > 0 : diff < 0;
 
-    const formattedDiff = isPercent 
-      ? `${(diff * 100).toFixed(1)}%` 
-      : isTime ? `${diff}ms` : `${diff.toFixed(5)}`;
+    let formattedDiff = '';
+    if (formatType === 'percent') {
+      formattedDiff = `${(diff * 100).toFixed(1)}%`;
+    } else if (formatType === 'time') {
+      formattedDiff = `${diff}ms`;
+    } else {
+      formattedDiff = `${diff.toFixed(5)}`;
+    }
     
     return {
       text: diff > 0 ? `+${formattedDiff}` : `${formattedDiff}`,
@@ -154,8 +155,8 @@ export default function Comparator({
               <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>Faithfulness</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{ fontWeight: 600 }}>{(runB.metrics.faithfulness * 100).toFixed(1)}%</span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.faithfulness, runB.metrics.faithfulness, false, true).color }}>
-                  ({calcDiff(runA.metrics.faithfulness, runB.metrics.faithfulness, false, true).text})
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.faithfulness, runB.metrics.faithfulness, 'percent', true).color }}>
+                  ({calcDiff(runA.metrics.faithfulness, runB.metrics.faithfulness, 'percent', true).text})
                 </span>
               </div>
             </div>
@@ -163,8 +164,8 @@ export default function Comparator({
               <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>Hallucination Rate</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{ fontWeight: 600 }}>{(runB.metrics.hallucinationRate * 100).toFixed(1)}%</span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.hallucinationRate, runB.metrics.hallucinationRate, false, true).color }}>
-                  ({calcDiff(runA.metrics.hallucinationRate, runB.metrics.hallucinationRate, false, true).text})
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.hallucinationRate, runB.metrics.hallucinationRate, 'percent', false).color }}>
+                  ({calcDiff(runA.metrics.hallucinationRate, runB.metrics.hallucinationRate, 'percent', false).text})
                 </span>
               </div>
             </div>
@@ -172,8 +173,8 @@ export default function Comparator({
               <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>p95 Response Latency</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{ fontWeight: 600 }}>{runB.metrics.p95Latency}ms</span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.p95Latency, runB.metrics.p95Latency, true, false).color }}>
-                  ({calcDiff(runA.metrics.p95Latency, runB.metrics.p95Latency, true, false).text})
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.p95Latency, runB.metrics.p95Latency, 'time', false).color }}>
+                  ({calcDiff(runA.metrics.p95Latency, runB.metrics.p95Latency, 'time', false).text})
                 </span>
               </div>
             </div>
@@ -181,8 +182,8 @@ export default function Comparator({
               <span style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>EVAL Cost</span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{ fontWeight: 600 }}>${runB.metrics.totalCost.toFixed(5)}</span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.totalCost, runB.metrics.totalCost, false, false).color }}>
-                  ({calcDiff(runA.metrics.totalCost, runB.metrics.totalCost, false, false).text})
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: calcDiff(runA.metrics.totalCost, runB.metrics.totalCost, 'cost', false).color }}>
+                  ({calcDiff(runA.metrics.totalCost, runB.metrics.totalCost, 'cost', false).text})
                 </span>
               </div>
             </div>

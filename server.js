@@ -3,6 +3,29 @@ import path from 'path';
 import fs from 'fs';
 import { initDb, getAllRuns, insertRun } from './database.js';
 
+// Zero-dependency .env loader fallback
+const envPath = path.resolve('.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf8');
+  envContent.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const firstEq = trimmed.indexOf('=');
+      if (firstEq !== -1) {
+        const key = trimmed.substring(0, firstEq).trim();
+        let val = trimmed.substring(firstEq + 1).trim();
+        // Remove quotes if present
+        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.substring(1, val.length - 1);
+        }
+        if (key && !process.env[key]) {
+          process.env[key] = val;
+        }
+      }
+    }
+  });
+}
+
 const app = express();
 const port = process.env.PORT || 5189;
 
