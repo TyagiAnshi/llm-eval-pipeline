@@ -34,6 +34,7 @@ export default function App() {
     simProgress,
     consoleLogs,
     isLoading,
+    hasServerKey,
     runEvaluation
   } = useEvalRuns(goldenDataset);
 
