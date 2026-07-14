@@ -74,8 +74,14 @@ Here is where everything is located and what is used where:
 
 The evaluation pipeline grades models based on five core criteria:
 
-* **Hallucination Rate (SLA: <= 5%):** Calculates the proportion of assertions made by the LLM that cannot be justified by the reference context. The system scans the generated answer, extracts claims, and verifies if the key entities and facts are grounded inside the context. If the hallucination rate exceeds 5%, the build is flagged as unstable.
-* **Faithfulness (SLA: > 90%):** Calculates whether the generated response relies solely on the provided context document. If the model answers the question using external pre-trained knowledge rather than using the provided documentation, the faithfulness score drops. High-quality systems require the model to rely strictly on retrieved chunks.
+* **Hallucination Rate (SLA: <= 5%):** Calculates the proportion of assertions made by the LLM that cannot be justified by the reference context. 
+  * **Real Gemini Path:** The system prompts the Gemini 1.5 Flash judge model to review the output against the reference context, assessing factual grounding and returning structured JSON scores.
+  * **Simulated Path:** Applies hyperparameter-correlated randomized estimations (e.g., higher chunk sizes decrease hallucination estimations; missing constraints increase them) to simulate typical model outputs.
+  If the hallucination rate exceeds 5%, the build is flagged as unstable.
+* **Faithfulness (SLA: > 90%):** Calculates whether the generated response relies solely on the provided context document.
+  * **Real Gemini Path:** The NLI judge verifies if the generated response pulls from external pre-trained knowledge instead of the grounding chunks.
+  * **Simulated Path:** Applies randomized estimations based on prompt guidelines and top-K parameter ranges.
+  If the model fails to rely strictly on retrieved chunks, the faithfulness score drops. High-quality systems require the model to rely strictly on retrieved chunks.
 * **p95 Response Latency (SLA: <= 2000ms):** Ensures the 95th percentile response time is under 2 seconds. A prompt that is too long or retrieves too many docs (high top-K) slows down response times. Measuring p95 protects production from latency spikes.
 * **Answer Relevancy (SLA: Informational):** Analyzes keyword overlap and semantic matching between the generated answer and expected ground truth. This ensures prompt adjustments did not alter the intended answer formatting or style.
 * **Eval Cost (SLA: Informational):** Calculates the API cost based on input/output token counts and model token pricing structures, preventing sudden cost regressions.

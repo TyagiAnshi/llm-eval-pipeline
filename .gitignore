@@ -79,3 +79,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# SQLite local data files
+*.db
+*.db-shm
+*.db-wal
