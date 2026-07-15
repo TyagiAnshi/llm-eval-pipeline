@@ -1,8 +1,8 @@
 import express, { type NextFunction, type Request, type Response } from 'express';
 import path from 'path';
 import fs from 'fs';
-import { initDb, getAllRuns, insertRun } from './database.js';
-import type { EvalRun } from './src/types.js';
+import { initDb, getAllRuns, insertRun } from './database.ts';
+import type { EvalRun } from './src/types.ts';
 
 // Zero-dependency .env loader fallback
 const envPath = path.resolve('.env');

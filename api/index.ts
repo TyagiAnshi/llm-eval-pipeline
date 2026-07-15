@@ -13,8 +13,8 @@ if (!process.env.RUNS_DB_PATH) {
   process.env.RUNS_DB_PATH = '/tmp/runs.db';
 }
 
-const { initDb } = await import('../database.js');
-const { app } = await import('../server.js');
+const { initDb } = await import('../database.ts');
+const { app } = await import('../server.ts');
 
 await initDb();
 
