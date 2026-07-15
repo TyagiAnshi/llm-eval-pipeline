@@ -1,0 +1,287 @@
+openapi: 3.0.3
+info:
+  title: LLM Eval CI/CD Workstation API
+  description: >
+    Backend proxy and run-history API for the LLM Eval CI/CD Workstation.
+    Serves the evaluation run ledger to the dashboard and proxies Gemini API
+    calls so client-side API keys are never embedded in a build artifact.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5189
+    description: Local development server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /api/config:
+    get:
+      operationId: getConfig
+      summary: Get public server configuration
+      description: Reports whether a server-side Gemini API key is configured, so the UI can hide the BYOK key input.
+      security: []
+      responses:
+        '200':
+          description: Server configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hasServerKey:
+                    type: boolean
+                    description: True if GEMINI_API_KEY is set on the server.
+
+  /api/runs:
+    get:
+      operationId: listRuns
+      summary: List evaluation run history
+      description: Returns all recorded evaluation runs (both simulated and real API runs), ordered by timestamp ascending.
+      security: []
+      responses:
+        '200':
+          description: Array of evaluation runs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EvalRun'
+        '500':
+          description: Database error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleError'
+
+  /api/runs/add:
+    post:
+      operationId: addRun
+      summary: Persist a new evaluation run
+      description: >
+        Inserts a new evaluation run and its per-test-case results into the
+        SQLite ledger. Requires a Bearer token matching the server's
+        `API_SECRET` env var; if `API_SECRET` is not configured, this
+        endpoint is disabled entirely (fails closed) rather than left open.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvalRun'
+      responses:
+        '200':
+          description: Run inserted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  id:
+                    type: integer
+                    description: Auto-incremented row id of the inserted run.
+        '400':
+          description: Malformed run payload (missing/invalid commitId, model, ragConfig, metrics, or testResults)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleError'
+        '403':
+          description: Missing or invalid bearer token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+        '503':
+          description: Server misconfiguration — API_SECRET not set, write endpoint disabled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+        '500':
+          description: Database error while inserting the run
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleError'
+
+  /api/eval:
+    post:
+      operationId: proxyEval
+      summary: Proxy a Gemini API generateContent call
+      description: >
+        Proxies a prompt to Gemini 1.5 Flash. Used for both the model-under-test
+        inference call and the LLM-as-a-judge scoring call (`useStructuredSchema: true`).
+        The API key comes from the server's `GEMINI_API_KEY` env var if set,
+        otherwise the caller-supplied `clientApiKey` (BYOK) is used.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [prompt]
+              properties:
+                prompt:
+                  type: string
+                  description: The full prompt text sent to Gemini.
+                clientApiKey:
+                  type: string
+                  description: Caller-supplied Google AI Studio API key, used only if the server has no GEMINI_API_KEY configured.
+                useStructuredSchema:
+                  type: boolean
+                  description: When true, requests a structured JSON response (faithfulness/relevancy/isHallucinating) for judge scoring.
+      responses:
+        '200':
+          description: Raw Gemini generateContent response
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or empty prompt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+        '401':
+          description: No API key available (neither server-side nor client-supplied)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+        '403':
+          description: Missing or invalid bearer token (only enforced if API_SECRET is configured)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+        '500':
+          description: Gemini API request failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WrappedError'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >
+        Bearer token equal to the server's API_SECRET env var. Optional on
+        /api/eval (enforced only if API_SECRET is set); required and
+        fail-closed on /api/runs/add.
+
+  schemas:
+    RagConfig:
+      type: object
+      required: [chunkSize, chunkOverlap, topK]
+      properties:
+        chunkSize:
+          type: integer
+        chunkOverlap:
+          type: integer
+        topK:
+          type: integer
+
+    RunMetrics:
+      type: object
+      required: [hallucinationRate, answerRelevancy, faithfulness, avgLatency, p50Latency, p95Latency, totalCost]
+      properties:
+        hallucinationRate:
+          type: number
+          format: float
+        answerRelevancy:
+          type: number
+          format: float
+        faithfulness:
+          type: number
+          format: float
+        avgLatency:
+          type: integer
+        p50Latency:
+          type: integer
+        p95Latency:
+          type: integer
+        totalCost:
+          type: number
+          format: float
+
+    TestResult:
+      type: object
+      properties:
+        id:
+          type: string
+        category:
+          type: string
+        question:
+          type: string
+        modelOutput:
+          type: string
+        latency:
+          type: integer
+        cost:
+          type: number
+          format: float
+        relevancy:
+          type: number
+          format: float
+        faithfulness:
+          type: number
+          format: float
+        isHallucinating:
+          type: boolean
+        status:
+          type: string
+          enum: [passed, failed]
+
+    EvalRun:
+      type: object
+      required: [commitId, model, ragConfig, metrics, testResults]
+      properties:
+        commitId:
+          type: string
+        author:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        message:
+          type: string
+        model:
+          type: string
+        promptTemplate:
+          type: string
+        isSimulated:
+          type: boolean
+        ragConfig:
+          $ref: '#/components/schemas/RagConfig'
+        metrics:
+          $ref: '#/components/schemas/RunMetrics'
+        passed:
+          type: boolean
+        failureReason:
+          type: string
+        testResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestResult'
+
+    SimpleError:
+      type: object
+      properties:
+        error:
+          type: string
+
+    WrappedError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string

@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "src/data/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
+}

@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   TrendingUp,
   Activity,
   CheckCircle,
   XCircle,
-  AlertTriangle,
-  Clock,
-  DollarSign,
   Search,
-  Eye,
-  GitBranch,
-  User,
-  HelpCircle
+  Eye
 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import type { EvalRun, TestResult } from '../types.ts';
 
-export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, datasetLength }) {
+interface DashboardProps {
+  runsHistory: EvalRun[];
+  activeRunIdx: number;
+}
+
+export default function Dashboard({ runsHistory, activeRunIdx }: DashboardProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
-  const [selectedTestCase, setSelectedTestCase] = useState(null);
+  const [selectedTestCase, setSelectedTestCase] = useState<TestResult | null>(null);
 
   if (runsHistory.length === 0) {
     return (
-      <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center', color: 'var(--color-text-secondary)' }}>
+      <div className="glass-panel panel-padded-lg">
         No evaluation history found. Run a simulation to populate metrics!
       </div>
     );
@@ -42,17 +42,17 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
 
   // Filter test results of the active run
   const filteredResults = activeRun.testResults.filter(item => {
-    const matchesSearch = item.id.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    const matchesSearch = item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.question.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = categoryFilter === 'all' || item.category === categoryFilter;
     const matchesStatus = statusFilter === 'all' || item.status === statusFilter;
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
-  const getSlaStatusClass = (passed) => passed ? 'status-badge-premium passed' : 'status-badge-premium failed';
-  
+  const getSlaStatusClass = (passed: boolean) => passed ? 'status-badge-premium passed' : 'status-badge-premium failed';
+
   // Format model label (simulated vs real)
-  const formatModelLabel = (runObj) => {
+  const formatModelLabel = (runObj: EvalRun) => {
     if (!runObj.isSimulated) {
       return `${runObj.model} (REAL API)`;
     }
@@ -64,29 +64,29 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
       {/* Active Run Header Banner */}
       <div className="commit-ribbon">
         <div className="commit-desc">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.35rem' }}>
-            <span className="tag-pill" style={{ fontFamily: 'var(--font-mono)' }}>commit {activeRun.commitId}</span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)' }}>
-              Model: <strong style={{ color: '#FFF' }}>{formatModelLabel(activeRun)}</strong>
+          <div className="flex-row gap-md" style={{ marginBottom: '0.35rem' }}>
+            <span className="tag-pill text-mono">commit {activeRun.commitId}</span>
+            <span className="text-md text-muted">
+              Model: <strong className="text-white">{formatModelLabel(activeRun)}</strong>
             </span>
           </div>
           <h4>{activeRun.message}</h4>
-          <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'block', marginTop: '0.35rem' }}>
+          <span className="text-md text-muted" style={{ display: 'block', marginTop: '0.35rem' }}>
             Author: {activeRun.author} • Run: {new Date(activeRun.timestamp).toLocaleString()}
           </span>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+        <div className="flex-col items-end gap-sm">
           <div className={getSlaStatusClass(activeRun.passed)}>
             {activeRun.passed ? <CheckCircle size={14} /> : <XCircle size={14} />}
             {activeRun.passed ? 'Safe to Merge (SLA Passed)' : 'Merge Blocked (SLA Failed)'}
           </div>
           {activeRun.isSimulated && (
-            <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', background: 'var(--color-warning-bg)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+            <span className="badge-inline badge-warning">
               ⚠️ Simulated telemetry data
             </span>
           )}
           {!activeRun.isSimulated && (
-            <span style={{ fontSize: '0.75rem', color: 'var(--color-success)', background: 'var(--color-success-bg)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+            <span className="badge-inline badge-success">
               🟢 Real Gemini 1.5 & Judge Telemetry
             </span>
           )}
@@ -99,11 +99,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
           <div className="kpi-details">
             <span className="kpi-label">Hallucinations</span>
             <span className="kpi-val">{(activeRun.metrics.hallucinationRate * 100).toFixed(1)}%</span>
-            <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)' }}>SLA threshold: &le; 5.0%</span>
+            <span className="text-xs text-muted">SLA threshold: &le; 5.0%</span>
           </div>
           <svg width="60" height="60" className="gauge-svg">
             <circle cx="30" cy="30" r="24" className="gauge-bg" />
-            <circle cx="30" cy="30" r="24" 
+            <circle cx="30" cy="30" r="24"
               className={`gauge-fill ${activeRun.metrics.hallucinationRate <= 0.05 ? 'success' : 'error'}`}
               strokeDasharray={`${activeRun.metrics.hallucinationRate * 150} 150`}
             />
@@ -114,11 +114,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
           <div className="kpi-details">
             <span className="kpi-label">Faithfulness</span>
             <span className="kpi-val">{(activeRun.metrics.faithfulness * 100).toFixed(1)}%</span>
-            <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)' }}>SLA threshold: &gt; 90.0%</span>
+            <span className="text-xs text-muted">SLA threshold: &gt; 90.0%</span>
           </div>
           <svg width="60" height="60" className="gauge-svg">
             <circle cx="30" cy="30" r="24" className="gauge-bg" />
-            <circle cx="30" cy="30" r="24" 
+            <circle cx="30" cy="30" r="24"
               className={`gauge-fill ${activeRun.metrics.faithfulness >= 0.90 ? 'success' : 'error'}`}
               strokeDasharray={`${activeRun.metrics.faithfulness * 150} 150`}
             />
@@ -129,11 +129,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
           <div className="kpi-details">
             <span className="kpi-label">p95 Latency</span>
             <span className="kpi-val">{activeRun.metrics.p95Latency}ms</span>
-            <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)' }}>SLA threshold: &le; 2000ms</span>
+            <span className="text-xs text-muted">SLA threshold: &le; 2000ms</span>
           </div>
           <svg width="60" height="60" className="gauge-svg">
             <circle cx="30" cy="30" r="24" className="gauge-bg" />
-            <circle cx="30" cy="30" r="24" 
+            <circle cx="30" cy="30" r="24"
               className={`gauge-fill ${activeRun.metrics.p95Latency <= 2000 ? 'cyan' : 'error'}`}
               strokeDasharray={`${Math.min(1.0, activeRun.metrics.p95Latency / 3000) * 150} 150`}
             />
@@ -144,11 +144,11 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
           <div className="kpi-details">
             <span className="kpi-label">Total Cost</span>
             <span className="kpi-val">${activeRun.metrics.totalCost.toFixed(4)}</span>
-            <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)' }}>Evaluated cases: {activeRun.testResults.length}</span>
+            <span className="text-xs text-muted">Evaluated cases: {activeRun.testResults.length}</span>
           </div>
           <svg width="60" height="60" className="gauge-svg">
             <circle cx="30" cy="30" r="24" className="gauge-bg" />
-            <circle cx="30" cy="30" r="24" 
+            <circle cx="30" cy="30" r="24"
               className="gauge-fill cyan"
               strokeDasharray="100 150"
             />
@@ -157,18 +157,18 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
       </div>
 
       {/* Recharts Line Trend Chart */}
-      <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
-        <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '1.1rem' }}>
-          <TrendingUp size={18} style={{ color: 'var(--accent-indigo)' }} />
+      <div className="glass-panel panel-padded panel-mb">
+        <h3 className="panel-title">
+          <TrendingUp size={18} />
           SLA Performance & Quality Trends Across Commits
         </h3>
-        <div style={{ width: '100%', height: 260 }}>
+        <div className="chart-wrap">
           <ResponsiveContainer>
             <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" />
               <XAxis dataKey="commit" stroke="var(--color-text-secondary)" tick={{ fontSize: 10 }} />
               <YAxis stroke="var(--color-text-secondary)" tick={{ fontSize: 10 }} />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{ background: '#0A0F1D', border: '1px solid rgba(99, 102, 241, 0.2)', borderRadius: '8px' }}
                 labelFormatter={(value) => `Commit: ${value}`}
               />
@@ -183,32 +183,42 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
       </div>
 
       {/* Search & Filter Logs Section */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-          <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
+      <div className="glass-panel panel-padded">
+        <div className="flex-row justify-between flex-wrap gap-lg" style={{ marginBottom: '1.5rem' }}>
+          <h3 className="flex-row gap-sm" style={{ fontSize: '1.1rem' }}>
             <Activity size={18} style={{ color: 'var(--accent-indigo)' }} />
             Active Run Test Logs
           </h3>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <div style={{ position: 'relative' }}>
-              <Search size={16} style={{ position: 'absolute', left: '10px', top: '10px', color: 'var(--color-text-secondary)' }} />
+          <div className="flex-row gap-md flex-wrap">
+            <div className="search-wrapper">
+              <Search size={16} className="search-icon" />
               <input
                 type="text"
                 placeholder="Search queries..."
-                className="form-input"
-                style={{ paddingLeft: '32px', width: '220px', height: '36px' }}
+                aria-label="Search test queries"
+                className="form-input search-input"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <select className="form-select" style={{ width: '150px', height: '36px' }} value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+            <select
+              className="form-select select-sm"
+              aria-label="Filter by category"
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+            >
               <option value="all">All Domains</option>
               <option value="Customer Support">Customer Support</option>
               <option value="Technical & Coding">Technical & Coding</option>
               <option value="Financial & Data Extraction">Finance & Data</option>
               <option value="Legal & Document Analysis">Legal & Contract</option>
             </select>
-            <select className="form-select" style={{ width: '130px', height: '36px' }} value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+            <select
+              className="form-select select-xs"
+              aria-label="Filter by status"
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
               <option value="all">All Statuses</option>
               <option value="passed">Passed</option>
               <option value="failed">Failed</option>
@@ -232,25 +242,18 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
             <tbody>
               {filteredResults.map((item) => (
                 <tr key={item.id} onClick={() => setSelectedTestCase(item)}>
-                  <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{item.id}</td>
+                  <td className="text-mono text-bold">{item.id}</td>
                   <td><span className="tag-pill">{item.category}</span></td>
-                  <td style={{ maxWidth: '280px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.question}</td>
+                  <td className="truncate-ellipsis">{item.question}</td>
                   <td>{item.latency}ms</td>
                   <td>{(item.faithfulness * 100).toFixed(0)}%</td>
                   <td>
-                    <span style={{
-                      color: item.status === 'passed' ? 'var(--color-success)' : 'var(--color-error)',
-                      fontWeight: 600,
-                      fontSize: '0.8rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.25rem'
-                    }}>
+                    <span className={`status-text ${item.status}`}>
                       {item.status === 'passed' ? '● PASSED' : '● FAILED'}
                     </span>
                   </td>
                   <td>
-                    <button className="menu-item" style={{ padding: '0.25rem 0.6rem', fontSize: '0.75rem', borderColor: 'var(--border-color)' }}>
+                    <button type="button" className="menu-item inspect-btn" aria-label={`Inspect test case ${item.id}`}>
                       <Eye size={12} style={{ marginRight: '0.25rem' }} /> Inspect
                     </button>
                   </td>
@@ -264,14 +267,18 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
       {/* Slide-out Drawer Panel */}
       {selectedTestCase && (
         <>
-          <div className="drawer-overlay open" onClick={() => setSelectedTestCase(null)} />
-          <div className="drawer-container open">
+          <div
+            className="drawer-overlay open"
+            onClick={() => setSelectedTestCase(null)}
+            role="presentation"
+          />
+          <div className="drawer-container open" role="dialog" aria-modal="true" aria-label={`Test case details for ${selectedTestCase.id}`}>
             <div className="drawer-header">
               <div>
-                <span className="tag-pill" style={{ fontFamily: 'var(--font-mono)' }}>{selectedTestCase.id}</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', marginLeft: '0.5rem' }}>{selectedTestCase.category}</span>
+                <span className="tag-pill text-mono">{selectedTestCase.id}</span>
+                <span className="text-sm text-muted" style={{ marginLeft: '0.5rem' }}>{selectedTestCase.category}</span>
               </div>
-              <button className="drawer-close" onClick={() => setSelectedTestCase(null)}>✕</button>
+              <button type="button" className="drawer-close" aria-label="Close details drawer" onClick={() => setSelectedTestCase(null)}>✕</button>
             </div>
             <div className="drawer-body">
               <div>
@@ -280,22 +287,22 @@ export default function Dashboard({ runsHistory, activeRunIdx, setActiveRunIdx, 
               </div>
               <div>
                 <h4 className="drawer-section-label">Reference RAG Context Document</h4>
-                <div className="drawer-content-box" style={{ background: 'rgba(99,102,241,0.03)', borderColor: 'rgba(99,102,241,0.1)' }}>
+                <div className="drawer-content-box tinted">
                   {selectedTestCase.reference_context || "Reference context loaded from golden dataset."}
                 </div>
               </div>
               <div>
                 <h4 className="drawer-section-label">Model Generated Response</h4>
-                <div className="drawer-content-box" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>{selectedTestCase.modelOutput}</div>
+                <div className="drawer-content-box text-mono text-md">{selectedTestCase.modelOutput}</div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
-                <div style={{ flex: 1 }}>
+              <div className="drawer-metric-row">
+                <div className="drawer-metric-col">
                   <h4 className="drawer-section-label">Latency Metric</h4>
-                  <div className="drawer-content-box" style={{ textAlign: 'center', fontSize: '1.1rem', fontWeight: 'bold' }}>{selectedTestCase.latency}ms</div>
+                  <div className="drawer-content-box metric-box-center">{selectedTestCase.latency}ms</div>
                 </div>
-                <div style={{ flex: 1 }}>
+                <div className="drawer-metric-col">
                   <h4 className="drawer-section-label">Faithfulness Score</h4>
-                  <div className="drawer-content-box" style={{ textAlign: 'center', fontSize: '1.1rem', fontWeight: 'bold', color: selectedTestCase.faithfulness >= 0.90 ? 'var(--color-success)' : 'var(--color-error)' }}>
+                  <div className={`drawer-content-box metric-box-center ${selectedTestCase.faithfulness >= 0.90 ? 'passed' : 'failed'}`}>
                     {(selectedTestCase.faithfulness * 100).toFixed(0)}%
                   </div>
                 </div>

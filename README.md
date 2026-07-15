@@ -19,15 +19,22 @@ This project introduces a **production-ready CI/CD gatekeeper**. If a developer 
 * **Dual-Run Comparator:** Compare two commits side-by-side to audit prompt differences and metric regressions.
 * **TestCase Inspector Drawer:** Click any test case to slide open a detailed side panel showing context documents, model outputs, expected answers, and faithfulness scoring.
 * **CLI Gatekeeper Script:** Headless testing runner that returns shell exit codes (`0` or `1`) for git hooks and GitHub Actions.
+* **Fully Typed:** The entire codebase (frontend, Express backend, SQLite layer, and CLI scripts) is TypeScript, checked via `npm run typecheck`.
+* **Automated Quality Gate:** A [GitHub Actions workflow](.github/workflows/eval-gate.yml) runs typecheck/lint/tests/build and the eval SLA gate on every push and PR, and posts the result as a PR comment. Matching Husky `pre-commit`/`pre-push` hooks enforce the same checks locally.
 
 ---
 
 ## 📂 Project Structure
-* [`/scripts/eval-runner.js`](./scripts/eval-runner.js): Command Line Interface (CLI) Pipeline Runner.
+* [`/scripts/eval-runner.ts`](./scripts/eval-runner.ts): Command Line Interface (CLI) Pipeline Runner.
 * [`/src/data/golden_dataset.json`](./src/data/golden_dataset.json): Benchmark dataset containing 100+ standard question-answer pairs.
 * [`/src/data/runs_history.json`](./src/data/runs_history.json): Ledger database tracking historical commit runs.
-* [`/src/App.jsx`](./src/App.jsx): Front-end workstation React dashboard.
+* [`/src/App.tsx`](./src/App.tsx): Front-end workstation React dashboard.
 * [`/src/index.css`](./src/index.css): Styling system with custom variables.
+* [`/src/utils/evalEngine.ts`](./src/utils/evalEngine.ts): Shared scoring/gating logic used by both the CLI runner and the web simulator.
+* [`/server.ts`](./server.ts) & [`/database.ts`](./database.ts): Express API proxy and SQLite persistence layer.
+* [`/tests`](./tests): Vitest unit tests (scoring logic) and Supertest API tests (auth, validation).
+* [`/.github/workflows/eval-gate.yml`](./.github/workflows/eval-gate.yml): CI pipeline enforcing the same quality gate on every push/PR.
+* [`/openapi.yaml`](./openapi.yaml): OpenAPI 3.0 spec for the backend routes.
 * [`PROJECT_EXPLANATION.pdf`](./PROJECT_EXPLANATION.pdf): A 6-page vector PDF detailing the complete connection flow and metrics formulas.
 
 ---
@@ -57,6 +64,24 @@ npm run eval
 ```bash
 npm run eval -- --model=gemini-1.5-flash --subset=10 --apiKey=YOUR_AI_STUDIO_KEY
 ```
+
+### 4. Development Checks
+```bash
+npm run typecheck   # tsc --noEmit across the frontend and backend projects
+npm run lint         # ESLint (flat config, TypeScript + React Hooks rules)
+npm run test         # Vitest unit + Supertest API tests
+npm run build        # Typecheck + production Vite build
+```
+These are the same checks run in [CI](.github/workflows/eval-gate.yml) and in the local Husky `pre-commit` (typecheck + lint) and `pre-push` (tests + eval gate) hooks — installed automatically via `npm install` (the `prepare` script).
+
+### 5. Run with Docker
+```bash
+docker compose up --build
+```
+Builds the frontend, then serves it and the API from a single container on **[http://localhost:5189](http://localhost:5189)**. The SQLite file persists in a named volume across restarts. Set `API_SECRET` and/or `GEMINI_API_KEY` in your shell environment (or a `.env` file) before running to configure the server-side secrets.
+
+### 6. API Reference
+The backend's four routes (`/api/config`, `/api/runs`, `/api/runs/add`, `/api/eval`) are documented in [`openapi.yaml`](./openapi.yaml).
 
 ---
 

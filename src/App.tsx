@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import {
   TrendingUp,
-  Activity,
   Play,
   Database,
   ArrowRightLeft,
   Sparkles,
-  HelpCircle,
-  RefreshCw,
-  Sliders
+  RefreshCw
 } from 'lucide-react';
 
-import Dashboard from './components/Dashboard';
-import Simulator from './components/Simulator';
-import Comparator from './components/Comparator';
-import Dataset from './components/Dataset';
-
-import { useEvalRuns } from './hooks/useEvalRuns';
+import { useEvalRuns } from './hooks/useEvalRuns.ts';
 import goldenDataset from './data/golden_dataset.json';
 
+const Dashboard = lazy(() => import('./components/Dashboard.tsx'));
+const Simulator = lazy(() => import('./components/Simulator.tsx'));
+const Comparator = lazy(() => import('./components/Comparator.tsx'));
+const Dataset = lazy(() => import('./components/Dataset.tsx'));
+
+type ActiveTab = 'dashboard' | 'simulator' | 'comparator' | 'dataset';
+
+function LoadingState({ label }: { label: string }) {
+  return (
+    <div className="loading-state">
+      <RefreshCw size={36} className="animate-spin spin-icon" />
+      {label}
+    </div>
+  );
+}
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
 
   const {
     runsHistory,
     activeRunIdx,
-    setActiveRunIdx,
     compareRun1Idx,
     setCompareRun1Idx,
     compareRun2Idx,
@@ -49,32 +56,40 @@ export default function App() {
             </div>
             <h1>LLM Eval CI/CD</h1>
           </div>
-          <span style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>v1.5 Enterprise</span>
+          <span className="eyebrow-label">v1.5 Enterprise</span>
 
-          <nav className="sidebar-menu">
+          <nav className="sidebar-menu" aria-label="Workstation tabs">
             <button
+              type="button"
               className={`menu-item ${activeTab === 'dashboard' ? 'active' : ''}`}
+              aria-current={activeTab === 'dashboard' ? 'page' : undefined}
               onClick={() => setActiveTab('dashboard')}
             >
               <TrendingUp size={18} />
               Metrics Control Room
             </button>
             <button
+              type="button"
               className={`menu-item ${activeTab === 'simulator' ? 'active' : ''}`}
+              aria-current={activeTab === 'simulator' ? 'page' : undefined}
               onClick={() => setActiveTab('simulator')}
             >
               <Play size={18} />
               CI Run Simulator
             </button>
             <button
+              type="button"
               className={`menu-item ${activeTab === 'comparator' ? 'active' : ''}`}
+              aria-current={activeTab === 'comparator' ? 'page' : undefined}
               onClick={() => setActiveTab('comparator')}
             >
               <ArrowRightLeft size={18} />
               Dual-Run Comparator
             </button>
             <button
+              type="button"
               className={`menu-item ${activeTab === 'dataset' ? 'active' : ''}`}
+              aria-current={activeTab === 'dataset' ? 'page' : undefined}
               onClick={() => setActiveTab('dataset')}
             >
               <Database size={18} />
@@ -88,7 +103,7 @@ export default function App() {
             <div className="user-avatar">AT</div>
             <div>
               <div style={{ fontSize: '0.85rem', fontWeight: 600 }}>Anshi Tyagi</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)' }}>Branch: main</div>
+              <div className="text-sm text-muted">Branch: main</div>
             </div>
           </div>
         </div>
@@ -114,24 +129,18 @@ export default function App() {
         </header>
 
         {isLoading ? (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '1rem', color: 'var(--color-text-secondary)' }}>
-            <RefreshCw size={36} className="animate-spin" style={{ animation: 'spin 1.5s linear infinite', color: 'var(--accent-indigo)' }} />
-            Loading evaluation history from database...
-          </div>
+          <LoadingState label="Loading evaluation history from database..." />
         ) : (
-          <>
+          <Suspense fallback={<LoadingState label="Loading view..." />}>
             {activeTab === 'dashboard' && (
               <Dashboard
                 runsHistory={runsHistory}
                 activeRunIdx={activeRunIdx}
-                setActiveRunIdx={setActiveRunIdx}
-                datasetLength={goldenDataset.length}
               />
             )}
 
             {activeTab === 'simulator' && (
               <Simulator
-                runsHistory={runsHistory}
                 isSimulating={isSimulating}
                 simProgress={simProgress}
                 consoleLogs={consoleLogs}
@@ -153,7 +162,7 @@ export default function App() {
             {activeTab === 'dataset' && (
               <Dataset goldenDataset={goldenDataset} />
             )}
-          </>
+          </Suspense>
         )}
       </main>
     </div>

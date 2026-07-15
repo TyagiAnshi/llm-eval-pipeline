@@ -1,7 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 
-const dataset = [];
+interface DatasetItem {
+  id: string;
+  category: string;
+  question: string;
+  expected_answer: string;
+  reference_context: string;
+  tags: string[];
+}
+
+const dataset: DatasetItem[] = [];
 
 // ==========================================
 // 1. Customer Support (25 diverse cases)

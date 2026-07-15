@@ -16,10 +16,9 @@ doc.pipe(stream);
 const titleFont = 'Helvetica-Bold';
 const headingFont = 'Helvetica-Bold';
 const bodyFont = 'Helvetica';
-const monoFont = 'Courier';
 
 // Helper: Draw Flowchart Box
-function drawBox(doc, x, y, width, height, text, strokeColor, fillColor, textColor = '#1E293B') {
+function drawBox(doc: PDFKit.PDFDocument, x: number, y: number, width: number, height: number, text: string, strokeColor: string, fillColor: string, textColor = '#1E293B') {
   doc.roundedRect(x, y, width, height, 6)
      .fillAndStroke(fillColor, strokeColor);
   doc.fillColor(textColor)
@@ -29,7 +28,7 @@ function drawBox(doc, x, y, width, height, text, strokeColor, fillColor, textCol
 }
 
 // Helper: Draw Diamond Decision
-function drawDiamond(doc, x, y, size, text, strokeColor, fillColor) {
+function drawDiamond(doc: PDFKit.PDFDocument, x: number, y: number, size: number, text: string, strokeColor: string, fillColor: string) {
   doc.moveTo(x, y + size/2)
      .lineTo(x + size/2, y)
      .lineTo(x + size, y + size/2)
@@ -44,7 +43,7 @@ function drawDiamond(doc, x, y, size, text, strokeColor, fillColor) {
 }
 
 // Helper: Draw Arrow
-function drawArrow(doc, x1, y1, x2, y2, text = '') {
+function drawArrow(doc: PDFKit.PDFDocument, x1: number, y1: number, x2: number, y2: number, text = '') {
   doc.strokeColor('#94A3B8')
      .lineWidth(1.2)
      .moveTo(x1, y1)

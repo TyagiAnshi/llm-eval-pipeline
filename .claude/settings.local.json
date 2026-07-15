@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -i https://solar-six-tan.vercel.app/api/config)",
+      "Bash(curl -s -i -X POST https://solar-six-tan.vercel.app/api/eval -H \"Content-Type: application/json\" -d '{\"prompt\":\"hello\"}')",
+      "Bash(node verify-api-entry2.mjs)",
+      "Bash(rm -f verify-api-entry2.mjs /tmp/vercel-entry-verify2.db*)",
+      "Bash(npm run *)",
+      "Bash(python3 -c \"import reportlab; print\\('reportlab', reportlab.Version\\)\")"
+    ]
+  }
+}

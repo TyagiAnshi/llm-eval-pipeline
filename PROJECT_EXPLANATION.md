@@ -10,7 +10,7 @@ The project is structured as a self-contained continuous integration (CI) qualit
 
 ```mermaid
 graph TD
-    A[developer/CI trigger] -->|1. runs config| B(scripts/eval-runner.js)
+    A[developer/CI trigger] -->|1. runs config| B(scripts/eval-runner.ts)
     B -->|2. reads test cases| C[src/data/golden_dataset.json]
     B -->|3. evaluates model| D{Gemini 1.5 Flash / Mock Models}
     B -->|4. compares metrics against SLAs| E[SLA Gatekeeper]
@@ -41,7 +41,7 @@ This project solves the LLM reliability crisis by introducing an automated LLMOp
 
 Here is where everything is located and what is used where:
 
-* **[`/scripts/eval-runner.js`](file:///Users/anshityagi/solar/scripts/eval-runner.js)**
+* **[`/scripts/eval-runner.ts`](file:///Users/anshityagi/solar/scripts/eval-runner.ts)**
   * **Role:** Command Line Interface (CLI) Pipeline Runner.
   * **Used Where:** In the local terminal or git actions (`npm run eval`).
   * **Functionality:** Loads the benchmark cases, runs simulations, scores model responses, updates history, and enforces quality gates (exit 0/1).
@@ -55,7 +55,7 @@ Here is where everything is located and what is used where:
   * **Role:** Run History Database.
   * **Used Where:** Persists previous run data so that the frontend can display trend charts and enable comparisons between different commits.
 
-* **[`/src/App.jsx`](file:///Users/anshityagi/solar/src/App.jsx)**
+* **[`/src/App.tsx`](file:///Users/anshityagi/solar/src/App.tsx)**
   * **Role:** Front-End Workstation Dashboard.
   * **Used Where:** React user interface.
   * **Functionality:** 

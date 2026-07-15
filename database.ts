@@ -1,11 +1,50 @@
 import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
+import type { EvalRun, TestResult } from './src/types.ts';
 
-const dbPath = path.resolve('runs.db');
+interface RunRow {
+  id: number;
+  commitId: string;
+  author: string;
+  timestamp: string;
+  message: string;
+  model: string;
+  promptTemplate: string;
+  chunkSize: number;
+  chunkOverlap: number;
+  topK: number;
+  hallucinationRate: number;
+  answerRelevancy: number;
+  faithfulness: number;
+  avgLatency: number;
+  p50Latency: number;
+  p95Latency: number;
+  totalCost: number;
+  passed: number;
+  failureReason: string;
+  isSimulated: number;
+}
+
+interface TestResultRow {
+  id: number;
+  runId: number;
+  testId: string;
+  category: string;
+  question: string;
+  modelOutput: string;
+  latency: number;
+  cost: number;
+  relevancy: number;
+  faithfulness: number;
+  isHallucinating: number;
+  status: string;
+}
+
+const dbPath = path.resolve(process.env.RUNS_DB_PATH || 'runs.db');
 const db = new sqlite3.Database(dbPath);
 
-export function initDb() {
+export function initDb(): Promise<void> {
   return new Promise((resolve, reject) => {
     db.serialize(() => {
       // Enable Write-Ahead Logging (WAL) mode for better concurrent performance
@@ -37,7 +76,7 @@ export function initDb() {
         )
       `, () => {
         // Run migration check: add isSimulated if table existed before schema change
-        db.all("PRAGMA table_info(runs)", (err, columns) => {
+        db.all<{ name: string }>("PRAGMA table_info(runs)", (err, columns) => {
           if (!err && columns && columns.length > 0) {
             const hasIsSimulated = columns.some(col => col.name === 'isSimulated');
             if (!hasIsSimulated) {
@@ -71,9 +110,9 @@ export function initDb() {
         CREATE INDEX IF NOT EXISTS idx_test_results_runId ON test_results(runId)
       `, (err) => {
         if (err) return reject(err);
-        
+
         // Seed default history if empty
-        db.get("SELECT COUNT(*) as count FROM runs", (err, row) => {
+        db.get<{ count: number }>("SELECT COUNT(*) as count FROM runs", (err, row) => {
           if (err) return reject(err);
           if (row.count === 0) {
             seedDefaultHistory()
@@ -88,12 +127,12 @@ export function initDb() {
   });
 }
 
-function seedDefaultHistory() {
+function seedDefaultHistory(): Promise<void> {
   return new Promise((resolve, reject) => {
     const historyJsonPath = path.resolve('src/data/runs_history.json');
     if (!fs.existsSync(historyJsonPath)) return resolve();
-    
-    const history = JSON.parse(fs.readFileSync(historyJsonPath, 'utf8'));
+
+    const history: EvalRun[] = JSON.parse(fs.readFileSync(historyJsonPath, 'utf8'));
     console.log(`Seeding SQLite database with ${history.length} default runs...`);
 
     db.serialize(() => {
@@ -139,7 +178,7 @@ function seedDefaultHistory() {
             run.metrics.hallucinationRate, run.metrics.answerRelevancy, run.metrics.faithfulness,
             run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
             run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason
-          ], function(err) {
+          ], function (this: sqlite3.RunResult, err: Error | null) {
             if (hasFailed) return;
             if (err) {
               hasFailed = true;
@@ -161,7 +200,7 @@ function seedDefaultHistory() {
                 runDbId, res.id, res.category, res.question, res.modelOutput,
                 res.latency, res.cost, res.relevancy, res.faithfulness,
                 res.isHallucinating ? 1 : 0, res.status
-              ], (stmtErr) => {
+              ], (stmtErr: Error | null) => {
                 if (hasFailed) return;
                 if (stmtErr) {
                   hasFailed = true;
@@ -193,23 +232,23 @@ function seedDefaultHistory() {
   });
 }
 
-function getTestResults(runId) {
+function getTestResults(runId: number): Promise<TestResultRow[]> {
   return new Promise((resolve, reject) => {
-    db.all("SELECT * FROM test_results WHERE runId = ?", [runId], (err, rows) => {
+    db.all<TestResultRow>("SELECT * FROM test_results WHERE runId = ?", [runId], (err, rows) => {
       if (err) reject(err);
       else resolve(rows);
     });
   });
 }
 
-export function getAllRuns() {
+export function getAllRuns(): Promise<EvalRun[]> {
   return new Promise((resolve, reject) => {
-    db.all("SELECT * FROM runs ORDER BY timestamp ASC", async (err, runs) => {
+    db.all<RunRow>("SELECT * FROM runs ORDER BY timestamp ASC", async (err, runs) => {
       if (err) return reject(err);
       if (runs.length === 0) return resolve([]);
-      
+
       try {
-        const runsWithResults = await Promise.all(runs.map(async (run) => {
+        const runsWithResults: EvalRun[] = await Promise.all(runs.map(async (run): Promise<EvalRun> => {
           const results = await getTestResults(run.id);
           return {
             commitId: run.commitId,
@@ -235,7 +274,7 @@ export function getAllRuns() {
             },
             passed: run.passed === 1,
             failureReason: run.failureReason,
-            testResults: results.map(r => ({
+            testResults: results.map((r): TestResult => ({
               id: r.testId,
               category: r.category,
               question: r.question,
@@ -245,7 +284,7 @@ export function getAllRuns() {
               relevancy: r.relevancy,
               faithfulness: r.faithfulness,
               isHallucinating: r.isHallucinating === 1,
-              status: r.status
+              status: r.status as TestResult['status']
             }))
           };
         }));
@@ -257,7 +296,7 @@ export function getAllRuns() {
   });
 }
 
-export function insertRun(run) {
+export function insertRun(run: EvalRun): Promise<number> {
   return new Promise((resolve, reject) => {
     let hasFailed = false;
 
@@ -276,7 +315,7 @@ export function insertRun(run) {
         run.metrics.hallucinationRate, run.metrics.answerRelevancy, run.metrics.faithfulness,
         run.metrics.avgLatency, run.metrics.p50Latency, run.metrics.p95Latency,
         run.metrics.totalCost, run.passed ? 1 : 0, run.failureReason, run.isSimulated ? 1 : 0
-      ], function(err) {
+      ], function (this: sqlite3.RunResult, err: Error | null) {
         if (hasFailed) return;
         if (err) {
           hasFailed = true;
@@ -298,7 +337,7 @@ export function insertRun(run) {
             runDbId, res.id, res.category, res.question, res.modelOutput,
             res.latency, res.cost, res.relevancy, res.faithfulness,
             res.isHallucinating ? 1 : 0, res.status
-          ], (stmtErr) => {
+          ], (stmtErr: Error | null) => {
             if (hasFailed) return;
             if (stmtErr) {
               hasFailed = true;

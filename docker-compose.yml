@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5189:5189"
+    environment:
+      PORT: 5189
+      RUNS_DB_PATH: /app/data/runs.db
+      API_SECRET: ${API_SECRET:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    volumes:
+      - runs-db-data:/app/data
+
+volumes:
+  runs-db-data:

@@ -1,8 +1,8 @@
 import fs from 'fs';
-import path from 'path';
+import type { GoldenDatasetItem } from '../src/types.ts';
 
 // Read golden dataset to reference it
-const goldenDataset = JSON.parse(fs.readFileSync('src/data/golden_dataset.json', 'utf8'));
+const goldenDataset: GoldenDatasetItem[] = JSON.parse(fs.readFileSync('src/data/golden_dataset.json', 'utf8'));
 
 const commits = [
   {
@@ -108,7 +108,7 @@ const commits = [
 ];
 
 // Enrich each commit with simulated test results for all 100 items
-const runsHistory = commits.map((commit, cIdx) => {
+const runsHistory = commits.map((commit) => {
   // Let's seed random behaviors per commit index to make evaluations realistic
   const testResults = goldenDataset.map((item, index) => {
     // Deterministic simulation based on index & commit properties

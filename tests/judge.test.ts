@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseJudgeOutput } from '../src/utils/judgeParser.js';
+import { parseJudgeOutput } from '../src/utils/judgeParser.ts';
 
 describe('parseJudgeOutput Unit Tests', () => {
   it('correctly parses structured JSON inputs', () => {

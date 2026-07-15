@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { Database, Search, HelpCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Database, Search } from 'lucide-react';
+import type { GoldenDatasetItem } from '../types.ts';
 
-export default function Dataset({ goldenDataset }) {
+interface DatasetProps {
+  goldenDataset: GoldenDatasetItem[];
+}
+
+export default function Dataset({ goldenDataset }: DatasetProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
 
@@ -13,25 +18,31 @@ export default function Dataset({ goldenDataset }) {
   });
 
   return (
-    <div className="glass-panel" style={{ padding: '1.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-        <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem' }}>
-          <Database size={18} style={{ color: 'var(--accent-indigo)' }} />
+    <div className="glass-panel panel-padded">
+      <div className="flex-row justify-between flex-wrap gap-lg" style={{ marginBottom: '1.5rem' }}>
+        <h3 className="panel-title" style={{ marginBottom: 0 }}>
+          <Database size={18} />
           Golden Evaluation Benchmark Dataset
         </h3>
-        <div style={{ display: 'flex', gap: '0.75rem' }}>
-          <div style={{ position: 'relative' }}>
-            <Search size={16} style={{ position: 'absolute', left: '10px', top: '10px', color: 'var(--color-text-secondary)' }} />
+        <div className="flex-row gap-md">
+          <div className="search-wrapper">
+            <Search size={16} className="search-icon" />
             <input
               type="text"
               placeholder="Search benchmark..."
-              className="form-input"
-              style={{ paddingLeft: '32px', width: '220px', height: '36px' }}
+              aria-label="Search benchmark dataset"
+              className="form-input search-input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <select className="form-select" style={{ width: '180px', height: '36px' }} value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+          <select
+            className="form-select"
+            style={{ width: '180px', height: '36px' }}
+            aria-label="Filter dataset by category"
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+          >
             <option value="all">All Domains</option>
             <option value="Customer Support">Customer Support</option>
             <option value="Technical & Coding">Technical & Coding</option>
@@ -55,11 +66,11 @@ export default function Dataset({ goldenDataset }) {
           <tbody>
             {filteredDataset.map((item) => (
               <tr key={item.id}>
-                <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{item.id}</td>
+                <td className="text-mono text-bold">{item.id}</td>
                 <td><span className="tag-pill">{item.category}</span></td>
                 <td style={{ fontSize: '0.85rem', fontWeight: 550 }}>{item.question}</td>
-                <td style={{ fontSize: '0.825rem', color: 'var(--color-text-secondary)' }}>{item.expected_answer}</td>
-                <td style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', maxWidth: '280px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                <td className="text-sm text-muted">{item.expected_answer}</td>
+                <td className="text-md truncate-ellipsis" style={{ color: 'var(--color-text-muted)' }}>
                   {item.reference_context}
                 </td>
               </tr>

@@ -1,14 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Sliders, Key, RefreshCw, Play } from 'lucide-react';
+import type { ConsoleLogEntry, SimulatorRunConfig } from '../types.ts';
+
+interface SimulatorProps {
+  isSimulating: boolean;
+  simProgress: number;
+  consoleLogs: ConsoleLogEntry[];
+  hasServerKey: boolean;
+  runEvaluation: (config: SimulatorRunConfig) => void;
+}
 
 export default function Simulator({
-  runsHistory,
   isSimulating,
   simProgress,
   consoleLogs,
   hasServerKey,
   runEvaluation
-}) {
+}: SimulatorProps) {
   const [simModel, setSimModel] = useState('gpt-4o-mini');
   const [geminiApiKey, setGeminiApiKey] = useState(localStorage.getItem('gemini_api_key') || '');
   const [simPrompt, setSimPrompt] = useState(
@@ -19,7 +27,7 @@ export default function Simulator({
   const [evalSubset, setEvalSubset] = useState(10);
   const [simMessage, setSimMessage] = useState('refactor: optimized prompt instruction for context retrieval');
 
-  const consoleEndRef = useRef(null);
+  const consoleEndRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll console terminal to bottom
   useEffect(() => {
@@ -46,25 +54,19 @@ export default function Simulator({
     });
   };
 
-  const getLogColorClass = (type) => {
-    if (type === 'success') return 'text-green-400';
-    if (type === 'error') return 'text-red-400';
-    return 'text-slate-300';
-  };
-
   return (
     <div className="simulator-layout">
       {/* Parameters Panel */}
-      <div className="glass-panel config-panel" style={{ padding: '1.5rem' }}>
-        <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '1.15rem' }}>
-          <Sliders size={20} style={{ color: 'var(--accent-indigo)' }} />
+      <div className="glass-panel config-panel panel-padded">
+        <h3 className="panel-title" style={{ fontSize: '1.15rem' }}>
+          <Sliders size={20} />
           Pipeline Hyperparameters
         </h3>
 
         <div className="config-form">
           <div className="form-group">
-            <label className="form-label">Target Model Engine</label>
-            <select className="form-select" value={simModel} onChange={(e) => setSimModel(e.target.value)}>
+            <label className="form-label" htmlFor="sim-model">Target Model Engine</label>
+            <select id="sim-model" className="form-select" value={simModel} onChange={(e) => setSimModel(e.target.value)}>
               <option value="gpt-4o-mini">gpt-4o-mini (Simulated)</option>
               <option value="gpt-4o">gpt-4o (Simulated)</option>
               <option value="claude-3-5-sonnet">claude-3-5-sonnet (Simulated)</option>
@@ -72,32 +74,32 @@ export default function Simulator({
               <option value="gemini-1.5-flash">Gemini 1.5 Flash (REAL API - Free Tier)</option>
             </select>
             {simModel !== 'gemini-1.5-flash' && (
-              <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', marginTop: '0.2rem', display: 'block' }}>
+              <span className="field-hint warning">
                 ⚠️ Simulated path: Metrics computed locally via hyperparameter models.
               </span>
             )}
           </div>
 
           {simModel === 'gemini-1.5-flash' && (
-            <div className="form-group" style={{ background: 'rgba(99, 102, 241, 0.05)', padding: '0.75rem', borderRadius: '8px', border: '1px dashed var(--accent-indigo)' }}>
-              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--accent-cyan)' }}>
+            <div className="form-group api-key-box">
+              <label className="form-label api-key-label" htmlFor="sim-gemini-key">
                 <Key size={14} /> Google AI Studio API Key
               </label>
               {hasServerKey ? (
-                <div style={{ color: 'var(--color-success)', fontSize: '0.85rem', padding: '0.5rem 0', fontWeight: 600 }}>
+                <div className="api-key-active">
                   🟢 Server API Key is active (configured in environment).
                 </div>
               ) : (
                 <>
                   <input
+                    id="sim-gemini-key"
                     type="password"
-                    className="form-input"
-                    style={{ background: 'rgba(0,0,0,0.6)', borderColor: 'var(--accent-indigo)' }}
+                    className="form-input api-key-input"
                     placeholder="AIzaSy..."
                     value={geminiApiKey}
                     onChange={(e) => setGeminiApiKey(e.target.value)}
                   />
-                  <span style={{ fontSize: '0.7rem', color: 'var(--color-text-secondary)', marginTop: '0.25rem', display: 'block' }}>
+                  <span className="api-key-hint">
                     Bring Your Own Key Tradeoff: Key is sent securely over the network to your local server at /api/eval and is never stored or exposed directly in client-side queries.
                   </span>
                 </>
@@ -106,23 +108,24 @@ export default function Simulator({
           )}
 
           <div className="form-group">
-            <label className="form-label">System Evaluation Prompt Template</label>
+            <label className="form-label" htmlFor="sim-prompt">System Evaluation Prompt Template</label>
             <textarea
+              id="sim-prompt"
               className="form-textarea"
-              style={{ minHeight: '120px' }}
               value={simPrompt}
               onChange={(e) => setSimPrompt(e.target.value)}
               placeholder="System: You are an AI assistant..."
             />
-            <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>
+            <span className="field-hint">
               Use dynamic tags: <code>{"{{context}}"}</code> and <code>{"{{question}}"}</code>
             </span>
           </div>
 
           <div className="range-inputs">
             <div className="form-group">
-              <label className="form-label">RAG Chunk Size</label>
+              <label className="form-label" htmlFor="sim-chunk-size">RAG Chunk Size</label>
               <input
+                id="sim-chunk-size"
                 type="number"
                 className="form-input"
                 value={simChunkSize}
@@ -132,8 +135,9 @@ export default function Simulator({
               />
             </div>
             <div className="form-group">
-              <label className="form-label">Top-K Docs</label>
+              <label className="form-label" htmlFor="sim-topk">Top-K Docs</label>
               <input
+                id="sim-topk"
                 type="number"
                 className="form-input"
                 value={simTopK}
@@ -145,8 +149,8 @@ export default function Simulator({
           </div>
 
           <div className="form-group">
-            <label className="form-label">Evaluation Subset (Test count)</label>
-            <select className="form-select" value={evalSubset} onChange={(e) => setEvalSubset(parseInt(e.target.value))}>
+            <label className="form-label" htmlFor="sim-subset">Evaluation Subset (Test count)</label>
+            <select id="sim-subset" className="form-select" value={evalSubset} onChange={(e) => setEvalSubset(parseInt(e.target.value))}>
               <option value="5">5 Cases (Fast API Check)</option>
               <option value="10">10 Cases (Recommended for API)</option>
               <option value="25">25 Cases</option>
@@ -156,8 +160,9 @@ export default function Simulator({
           </div>
 
           <div className="form-group">
-            <label className="form-label">Commit Message log</label>
+            <label className="form-label" htmlFor="sim-message">Commit Message log</label>
             <input
+              id="sim-message"
               type="text"
               className="form-input"
               value={simMessage}
@@ -167,6 +172,7 @@ export default function Simulator({
           </div>
 
           <button
+            type="button"
             className="btn-primary"
             style={{ marginTop: '1rem' }}
             onClick={handleRun}
@@ -174,7 +180,7 @@ export default function Simulator({
           >
             {isSimulating ? (
               <>
-                <RefreshCw size={18} className="animate-spin" style={{ animation: 'spin 1s linear infinite' }} />
+                <RefreshCw size={18} className="animate-spin spin-icon" />
                 Auditing Benchmark Set ({simProgress}%)
               </>
             ) : (
@@ -190,24 +196,24 @@ export default function Simulator({
       {/* Retro Scrolling Console Output */}
       <div className="terminal-window-premium">
         <div className="terminal-header">
-          <div style={{ display: 'flex', gap: '0.4rem' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444', display: 'inline-block' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
+          <div className="terminal-status-dots">
+            <span className="terminal-status-dot red" />
+            <span className="terminal-status-dot amber" />
+            <span className="terminal-status-dot green" />
           </div>
-          <span style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontFamily: 'var(--font-mono)' }}>eval-ci-pipeline-runner.sh</span>
+          <span className="terminal-title">eval-ci-pipeline-runner.sh</span>
         </div>
         <div className="terminal-content">
           {consoleLogs.length === 0 ? (
-            <div style={{ margin: 'auto', textAlign: 'center', color: '#475569' }}>
-              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.5rem' }}>&gt;_</span>
+            <div className="terminal-idle">
+              <span className="terminal-idle-glyph">&gt;_</span>
               Console Idle<br />
               Configure parameters on the left and run a simulation.
             </div>
           ) : (
             consoleLogs.map((log, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '0.75rem' }} className={getLogColorClass(log.type)}>
-                <span style={{ color: '#475569' }}>[{log.time}]</span>
+              <div key={idx} className={`log-line ${log.type}`}>
+                <span className="log-time">[{log.time}]</span>
                 <span>{log.text}</span>
               </div>
             ))
