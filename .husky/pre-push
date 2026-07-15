@@ -1,1 +1,1 @@
-npm run test && npm run eval -- --subset=50
+npm run test && npm run eval -- --model=claude-3-5-sonnet --subset=50

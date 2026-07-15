@@ -38,7 +38,7 @@ jobs:
 
       - name: Run LLM eval quality gate
         id: eval_gate
-        run: npm run eval -- --author="${{ github.actor }}" --commit="${{ github.sha }}" --message="${{ github.event.head_commit.message || github.event.pull_request.title || 'CI run' }}" | tee eval-output.log
+        run: npm run eval -- --model=claude-3-5-sonnet --author="${{ github.actor }}" --commit="${{ github.sha }}" --message="${{ github.event.head_commit.message || github.event.pull_request.title || 'CI run' }}" | tee eval-output.log
         continue-on-error: true
 
       - name: Surface eval gate result as a PR comment
