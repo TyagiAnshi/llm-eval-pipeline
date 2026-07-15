@@ -35,7 +35,7 @@ This project introduces a **production-ready CI/CD gatekeeper**. If a developer 
 * [`/tests`](./tests): Vitest unit tests (scoring logic) and Supertest API tests (auth, validation).
 * [`/.github/workflows/eval-gate.yml`](./.github/workflows/eval-gate.yml): CI pipeline enforcing the same quality gate on every push/PR.
 * [`/openapi.yaml`](./openapi.yaml): OpenAPI 3.0 spec for the backend routes.
-* [`PROJECT_EXPLANATION.pdf`](./PROJECT_EXPLANATION.pdf): A 6-page vector PDF detailing the complete connection flow and metrics formulas.
+* [`/scripts/generate-pdf.ts`](./scripts/generate-pdf.ts): Generates a PDF detailing the complete connection flow and metrics formulas. PDFs aren't committed to the repo (see `.gitignore`) — run `node scripts/generate-pdf.ts` to produce one locally.
 
 ---
 
